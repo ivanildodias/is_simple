@@ -1,0 +1,246 @@
+/*
+Theme Name: Ignus Studios 2.0 / Site
+Theme URI: http://ignusstudios.com/
+Description: Tema versão 2.0 do site Ignus Studios.
+ 
+Author: Ivanildo Dias
+Author URI: http://ignusstudios.com/
+Version: 2.0
+ 
+License: Creative Commons 3.0
+License URI: http://creativecommons.org/licenses/by/3.0
+*/
+
+
+/* PADRÕES DE ORGANIZAÇÃO
+ * .seletor { [fonte e propriedades de texto]
+ *			  [plano de fundo]
+ *			  [tamanho]
+ *			  [bordas]
+ *			  [espaçamentos]
+ *			  [posicionamento] }
+ * ----------------------------------------------------------------------------
+ */
+
+
+/**
+ * RESET
+ *
+ * Adaptações feitas para otimizar a experiência do usuário nos mais variados navegadores.
+ * ----------------------------------------------------------------------------
+ */
+
+* { font: inherit; font-size: 100%; font-style:normal; font-weight:normal; line-height: 20px; text-align: justify;
+	border: 0;
+	margin: 0; padding: 0;
+	vertical-align: baseline; }
+
+h1, h2, h3, h4, h5,h6 { font-family: 'Open Sans', sans-serif; font-weight: bold; }
+h3, h4 { line-height:30px; }
+h1 { font-size: 48px; line-height: 60px; margin-bottom: 20px; }
+h2 { font-size: 18px; font-style: italic; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 12px; }
+
+ol li { list-style: decimal; }
+ul li { list-style: disc; }
+li { margin-left: 30px; }
+
+b, strong { font-style: normal; font-weight: bold; }
+i, em { font-style: italic; font-weight: normal; }
+b i, b em, strong i, strong em,
+i b, em b, i strong, em strong { font-style: italic; font-weight: bold; }
+
+/* Formulários */
+input, textarea { padding: 5px; border: 1px solid #ccc; }
+
+input:focus, textarea:focus { background: #fefedd; }
+
+label { display: block; }
+label.error { width: 100%; padding: 5px; color: #b01117; font-weight: bold; }
+
+input[type=submit], input[type=button] { cursor: pointer; border: 1px solid #ccc; }
+input[type=submit]:hover, input[type=button]:hover { background: #ccc; border: 1px solid #aaa; }
+
+form p { font-size: 16px; margin-bottom: 10px; }
+form li { list-style: none; margin-left: 0; margin-bottom: 10px; }
+form span.required { color: #b01117; font-weight: bold; }
+
+
+
+/**
+ * PADRÕES REPETITIVOS
+ *
+ * Classes que são usadas repetidamente no template.
+ * ----------------------------------------------------------------------------
+ */
+
+#grid { width: 100%; min-width: 900px; height: 2000px; background: url('../img/grid.png') top center repeat-y; position: absolute; top: 0; left: 0; opacity: 0.15; display: none; }
+
+.clear { clear: both; }
+
+.inner { padding: 20px; }
+
+.limit { width: 80%; max-width: 900px; margin: 0 auto; }
+
+.radius5 { -webkit-border-radius: 5px; border-radius: 5px; }
+
+
+/**
+ * ESTRUTURA BÁSICA
+ *
+ * Tags relacionadas a estrutura base do template.
+ * ----------------------------------------------------------------------------
+ */
+
+a, a:visited { text-decoration: none; color: #d60; }
+a:hover { color: #b01117; font-weight: bold; }
+
+body { color: #000; font-family: 'Quattrocento Sans', sans-serif; font-size: 14px;
+ 	   background: #ccc; }
+
+
+/**
+ * SITE HEADER
+ *
+ * Tags relacionadas ao cabeçalho principal do template.
+ * ----------------------------------------------------------------------------
+ */
+
+#logo_header img { height: 110px;
+				   display: block;
+				   margin: 0 auto; }
+
+#site_title, #site_description { text-align: center; }
+	#site_title a { font-weight: bold; }
+
+
+/**
+ * CONTENT HEADER
+ *
+ * Tags relacionadas ao cabeçalho de conteúdo do template.
+ * ----------------------------------------------------------------------------
+ */
+
+.header { margin-bottom: 20px; }
+
+.header h3 { font-size: 30px; line-height: 40px; text-align: center; text-transform: uppercase;
+			 border-bottom: 2px solid #b01117;
+			 padding-bottom: 10px; }
+
+
+/**
+ * CONTENT SITE
+ *
+ * Tags relacionadas ao conteúdo principal do template.
+ * ----------------------------------------------------------------------------
+ */
+
+#content_site { background: rgba(255,255,255,0.5);
+				-webkit-border-radius: 20px; border-radius: 20px;
+				margin-bottom: 20px; }
+
+.content h4 { text-align: center; }
+
+
+/**
+ * CONTACT FORM
+ *
+ * Tags relacionadas ao formulário de contato do template.
+ * ----------------------------------------------------------------------------
+ */
+
+#contact_form { width: 500px; margin: 40px auto; border: 2px solid #ccc; }
+	#contact_form input[type=text] { width: 300px; font-style: italic; }
+	#contact_form input[type=submit] { padding-right: 30px; padding-left: 30px; text-align: center; }
+	#contact_form textarea { width: 100%; }
+
+.sucesso, .falha { text-align: center; font-weight: bold; }
+.sucesso { color: #02c800; }
+.falha { color: #d00; }
+
+
+/**
+ * FOOTER
+ *
+ * Tags relacionadas ao rodapé principal do template.
+ * ----------------------------------------------------------------------------
+ */
+
+#footer { color: #fff;
+		  background: url('../img/footer_bg.png') no-repeat top center;
+		  width: 100%; height: 150px; }
+
+	#footer_text { margin-top: 85px;
+				   float: left; }
+	
+	#footer_logo { margin-top: 55px;
+				   display: block; float: right; }
+
+
+/**
+ * ANIMAÇÃO HOME
+ *
+ * Tags relacionadas ao ícone animado na home do template.
+ * ----------------------------------------------------------------------------
+ */
+
+#animado, #animado2 {
+	width: 289px; height: 473px; margin: 80px auto;
+	background: url('../img/logo_ignus_sem-brilho.png') no-repeat top center;
+	
+	animation: anim_quadro 1s ease infinite alternate;
+	
+	-webkit-transition: all 2000ms ease;
+	-moz-transition: all 2000ms ease;
+	-ms-transition: all 2000ms ease;
+	-o-transition: all 2000ms ease;
+	transition: all 2000ms ease;
+}
+
+#animado2 { background: url('../img/logo_ignus_brilho.png') no-repeat top center;
+			animation: anim_opacidade 1s ease infinite alternate; }
+
+@keyframes anim_quadro {
+	from { -moz-transform: scale(0.95); -webkit-transform: scale(0.95); -o-transform: scale(0.95); -ms-transform: scale(0.95); transform: scale(0.95); }
+	to { background: url('../img/logo_ignus_brilho.png') no-repeat top center; }
+}
+
+@keyframes anim_opacidade {
+	from { opacity: 0.2; filter: alpha(opacity=20); }
+	to { opacity: 0.9; filter: alpha(opacity=90); }
+}
+
+
+/**
+ * MEDIA QUERIES
+ *
+ * Adaptações para tornar o template responsivo.
+ * ----------------------------------------------------------------------------
+ */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 240px) and (max-width: 495px) {
+	.limit { width: 90%; }
+	.inner { padding: 10px; }
+	
+	body { font-size: 12px; }
+	
+	#contact_form, #contact_form input[type=text],
+	#contact_form textarea { width: 95%; }
+	#contact_form input[type=submit] { width: 100%; }
+	
+	#footer { background-image: none; background-color: #000; height: auto; }
+	#footer_text, #footer_text p, #footer_logo { text-align: center; width: 100%; float: none;  margin: 0; }
+	#footer_logo { margin-top: 10px; }
+	
+	#animado, #animado2 { animation: none; }
+	#animado2 { opacity: 0.5; filter: alpha(opacity=50); }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	.limit { width: 80%; max-width: 900px; }
+}
