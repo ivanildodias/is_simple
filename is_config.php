@@ -8,7 +8,7 @@
 $config = array();
 
 // GERAIS
-$config['url']['home'] = 'http://localhost/ignus_temp/';
+$config['url']['home'] = 'http://localhost/is_simple/';
 $config['theme'] = 'scroll_site';
 $config['site_name'] = 'Ignus Studios';
 $config['site_desc'] = 'Tudo começa com uma ideia!';
