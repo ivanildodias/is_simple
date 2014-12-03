@@ -1,7 +1,12 @@
 <?php
-echo '<pre>';
-print_r($_SERVER);
-echo '</pre>';
+/**
+ * Arquivo: index.php
+ * 
+ * Função: Testa se o PHP está sendo executado e chama o arquivo
+ * responsável pelo carregamento de todo o restante do código
+ * ------------------------------------------------------------------
+ */
+
 /**
  * Certifique-se que o PHP é executado
  * ------------------------------------------------------------------
