@@ -20,9 +20,9 @@ if ( false ) :
 			<title>Erro: PHP não é executado</title>
 		</head>
 		<body>
-			<h1><a href="http://ignusstudios.com/">Ignus Studios</a></h1>
+			<h1><a href="https://github.com/ivanildodias/is_simple">IS_Simple</a></h1>
 			<h2>Erro: PHP não é executado</h2>
-			<p>Nosso sistema requer que o seu servidor web execute PHP. Seu servidor não tem PHP instalado ou o PHP está desligado.</p>
+			<p>O IS_Simple requer que o seu servidor web execute PHP. Seu servidor não tem PHP instalado ou o PHP está desligado.</p>
 		</body>
 	</html>
 	<?php

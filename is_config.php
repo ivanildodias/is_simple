@@ -8,7 +8,7 @@
 $config = array();
 
 // GERAIS
-$config['url']['home'] = 'http://localhost/is_simple/';
+$config['url']['home'] = 'http://localhost/github/is_simple_master/';
 $config['theme'] = 'scroll_site';
 $config['site_name'] = 'IS_Simple';
 $config['site_desc'] = 'Um Framework PHP simples, leve e robusto sem acesso a banco de dados';
@@ -30,4 +30,3 @@ $config['theme_dir'] = $config['base_dir'] . 'theme/' . $config['theme'] . '/';
 $count_localhost_base_url = strlen( $config['url']['home'] ) - 16;
 $config['base_url'] = ( $_SERVER['HTTP_HOST'] = 'localhost' ) ? substr( $_SERVER['REQUEST_URI'], $count_localhost_base_url ) : $_SERVER['REQUEST_URI'];
 $config['url']['theme'] = $config['url']['home'] . 'theme/' . $config['theme'] . '/';
-?>
