@@ -10,8 +10,8 @@ $config = array();
 // GERAIS
 $config['url']['home'] = 'http://localhost/is_simple/';
 $config['theme'] = 'scroll_site';
-$config['site_name'] = 'Ignus Studios';
-$config['site_desc'] = 'Tudo começa com uma ideia!';
+$config['site_name'] = 'IS_Simple';
+$config['site_desc'] = 'Um Framework PHP simples, leve e robusto sem acesso a banco de dados';
 
 /**
  * NÃO MEXA EM NADA APARTIR DAQUI!
