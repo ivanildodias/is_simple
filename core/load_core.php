@@ -8,4 +8,5 @@ require_once $config['inc_dir'] . 'load_includes.php';
 
 // Funções essenciais para o funcionamento do sistema
 require_once 'template.php';
-?>
+
+

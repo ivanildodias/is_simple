@@ -71,4 +71,3 @@ function include_core( $core_part ) {
 
 
 
-?>
