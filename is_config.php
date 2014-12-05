@@ -8,7 +8,7 @@
 $config = array();
 
 // GERAIS
-$config['url']['home'] = 'http://localhost/github/is_simple_master/';
+$config['url']['home'] = 'http://localhost/is_simple_master/';
 $config['theme'] = 'scroll_site';
 $config['site_name'] = 'IS_Simple';
 $config['site_desc'] = 'Um Framework PHP simples, leve e robusto sem acesso a banco de dados';

@@ -3,9 +3,9 @@
 /**
  * Retorna as informações solicitadas do site
  * 
- * @param string $info Palavra-chave da informação que deseja que seja retornada
- * @param string $display Deixe em branco para exibir diretamente a informação ou digite "display" para retornar a informação sem exibí-la
- * @return string Retorna a informação solicitada
+ * @param	string	$info		Palavra-chave da informação que deseja que seja retornada
+ * @param	string	$display	Deixe em branco para exibir diretamente a informação ou digite "display" para retornar a informação sem exibí-la
+ * @return	string	Retorna a informação solicitada
  * ------------------------------------------------------------------
  */
 function site_info( $info = 'site_name', $display = '' ) {
@@ -22,9 +22,9 @@ function site_info( $info = 'site_name', $display = '' ) {
 /**
  * Retorna as url's solicitadas
  * 
- * @param string $url Palavra-chave da url que deseja que seja retornada
- * @param string $display Deixe em branco para exibir diretamente a url ou digite "display" para retornar a url sem exibí-la
- * @return string Retorna a url solicitada
+ * @param	string	$url		Palavra-chave da url que deseja que seja retornada
+ * @param	string	$display	Deixe em branco para exibir diretamente a url ou digite "display" para retornar a url sem exibí-la
+ * @return	string	Retorna a url solicitada
  * ------------------------------------------------------------------
  */
 function get_url( $url = 'home', $display = '' ) {
@@ -41,7 +41,7 @@ function get_url( $url = 'home', $display = '' ) {
 /**
  * Verifica se está na página inicial do site
  * 
- * @return bool Retorna TRUE se estiver na página inicial do site
+ * @return	bool	Retorna TRUE se estiver na página inicial do site
  * ------------------------------------------------------------------
  */
 function is_home(){
@@ -58,9 +58,9 @@ function is_home(){
 
 
 /**
- * Insere um arquivo do diretório "inc" do sistema
+ * Insere um recurso encontrado no diretório "inc" do sistema
  * 
- * @param string  $core_part
+ * @param	string	$core_part	Nome do recurso que deseja inserir
  * ------------------------------------------------------------------
  */
 function include_core( $core_part ) {

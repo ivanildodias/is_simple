@@ -2,6 +2,10 @@
 
 /**
  * Gerencia páginas para exibição no site e retorna o valor solicitado
+ * 
+ * @param	string	$term		Palavra-chave da informação da página que deseja que seja retornada
+ * @param	string	$display	Deixe em branco para exibir diretamente a informação ou digite "display" para retornar a informação sem exibí-la
+ * @return	string	Retorna a informação solicitada
  * ------------------------------------------------------------------
  */
 function content_site( $term, $display = '' ) {
@@ -32,6 +36,8 @@ function content_site( $term, $display = '' ) {
 
 /**
  * Dá include de um arquivo do seu tema
+ * 
+ * @param	string	$theme_part_name	Nome do arquivo que deseja inserir
  * ------------------------------------------------------------------
  */
 function include_theme_part( $theme_part_name ) {
