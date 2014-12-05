@@ -46,16 +46,21 @@ function get_url( $url = 'home', $display = '' ) {
  */
 function is_home(){
 	global $config;
+	
 	$url = $config['base_url'];
 	
 	if ( $url == '' ) :
 		return TRUE;
+	else:
+		return FALSE;
 	endif;
 }
 
 
 /**
- * Dá include de um arquivo do sistema
+ * Insere um arquivo do diretório "inc" do sistema
+ * 
+ * @param string  $core_part
  * ------------------------------------------------------------------
  */
 function include_core( $core_part ) {
