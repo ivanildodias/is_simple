@@ -43,15 +43,15 @@
 			<section id="header-conteiner" class="conteiner">
 				<div class="linha">
 					
-					<div id="logo_header" class="col_2 inner">
+					<div id="logo-header" class="alignleft">
 						<a href="<?php get_url(); ?>">
-							<img src="<?php get_url( 'theme' ); ?>img/logo_ignus_slogan.png" alt="<?php site_info(); ?>" />
+							<img src="<?php get_url( 'theme' ); ?>img/is_logo.png" alt="<?php site_info(); ?>" />
 						</a>
 					</div> <!-- #logo_header -->
 					
-					<hgroup id="masthead" class="col_10">
-						<h1 id="site_title"><a href="<?php get_url(); ?>"><?php site_info(); ?></a></h1>
-						<h2 id="site_description" class="sub-title"><?php site_info( 'site_desc' ); ?></h2>
+					<hgroup id="masthead">
+						<h1 id="site-title"><a href="<?php get_url(); ?>"><?php site_info(); ?></a></h1>
+						<h2 id="site-description" class="sub-title"><?php site_info( 'site_desc' ); ?></h2>
 					</hgroup> <!-- #masthead -->
 					
 				</div>

@@ -57,8 +57,8 @@
  * ----------------------------------------------------------------------------
  */
 body{
-	background: #eee;
-	color: #333;
+	background: #f1f1f1;
+	color: black;
 	font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -102,11 +102,11 @@ p { text-align: justify; }
 
 /* Links */
 a, a:visited {
-	color: #d93;
+	color: royalblue;
 }
 
 a:hover, a:focus {
-	color: #d33;
+	color: #008;
 	font-weight: bold;
 }
 
@@ -426,20 +426,38 @@ nav .sub-nav li a {
 
 
 /**
+ * GERAL
+ *
+ * Tags relacionadas a uma personalização geral do template.
+ * ----------------------------------------------------------------------------
+ */
+#header, #main {
+    margin-bottom: 20px;
+    margin-bottom: 2rem;   /* 20 / $rembase */
+}
+
+
+/**
  * SITE HEADER
  *
  * Tags relacionadas ao cabeçalho principal do template.
  * ----------------------------------------------------------------------------
  */
-#site_title, #site_description { text-align: center; }
+#logo-header {
+    padding-top: 10px;
+    padding-top: 1rem;   /* 10 / $rembase */
+}
 
-#site_title a { color: #333; }
+#logo-header img { height: 80px; }
 
-#site_description {
-	color: #888;
+#site-title a { color: #006; }
+
+#site-description {
+	color: royalblue;
 	font-size: 16px;
 	font-size: 1.6rem;		/* 16 / $rembase */
 	line-height: 1.25em;	/* 20 / font-size */
+	margin-bottom: 0;
 }
 
 
