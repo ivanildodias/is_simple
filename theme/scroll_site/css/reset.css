@@ -1,0 +1,208 @@
+/**
+ * RESET.CSS
+ * 
+ * Adaptações feitas para otimizar a experiência do usuário nos mais variados navegadores.
+ * ------------------------------------------------------------------	
+ */
+
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Elementos HTML5 */
+article, aside, details,
+figcaption, figure, footer,
+header, hgroup, main, nav,
+section, summary
+	{ display: block; }
+
+/* Ajuste de posicionamento e exibição padrão */
+audio, canvas, progress, video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+/* Oculta elemento "audio" sem controles */
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/* Padroniza a ocultação desses elementos para navegadores antigos */
+[hidden], template { display: none; }
+
+/* ESTRUTURA BÁSICA */
+/* Elemento html com 62.5% de font-size para uso de REM | REM*10 = PX - Ex.: 1.4rem = 14px */
+html {
+	font-size: 62.5%;	/* 10px */
+}
+
+/* Aplicando novo padrão de cor, tamanho da fonte e entre-linhas */
+body {
+	color: #000;
+	font-size: 16px;
+	font-size: 1.6rem;		/* 16 / $rembase */
+	line-height: 1.25em;	/* 20 / font-size */
+}
+
+/* Remove outline de todos os elementos no estado "focus" */
+:focus { outline: 0; }
+
+/* TÍTULOS */
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+h1 {
+	font-size: 52px;
+	font-size: 5.2rem;		/* 52 / $rembase */
+	line-height: 1.3461em;	/* 70 / font-size */
+}
+
+h2 {
+	font-size: 44px;
+	font-size: 4.4rem;		/* 44 / $rembase */
+	line-height: 1.3636em;	/* 60 / font-size */
+}
+
+h3 {
+	font-size: 36px;
+	font-size: 3.6rem;		/* 36 / $rembase */
+	line-height: 1.3888em;	/* 50 / font-size */
+}
+
+h4 {
+	font-size: 28px;
+	font-size: 2.8rem;		/* 28 / $rembase */
+	line-height: 1.4285em;	/* 40 / font-size */
+}
+
+h5 {
+	font-size: 20px;
+	font-size: 2rem;		/* 20 / $rembase */
+	line-height: 1.5em;		/* 30 / font-size */
+}
+
+h6 {
+	font-size: 16px;
+	font-size: 1.6rem;		/* 16 / $rembase */
+	line-height: 1.25em;	/* 20 / font-size */
+}
+
+/* LINKS */
+/* Remove fundo cinza padrão no IE 10 */
+a {	background: transparent; }
+
+/* Melhora a legibilidade nessas situações */
+a:active, a:hover {	outline: 0; }
+
+a:hover, a:focus { cursor: pointer; }
+
+/* Remove a decoração em todos os links */
+a, a:link, a:visited, a:hover, a:active { text-decoration: none; }
+
+
+/* IMAGENS E IFRAME */
+img, iframe {
+	border: none;
+	text-decoration: none;
+}
+
+
+/* SEMÂNTICAS DE TEXTOS */
+/* Ajuste de estilo de abreviaturas */
+abbr[title] { border-bottom: 1px dotted; }
+
+abbr[title], acronym[title], time[title] { cursor: help; }
+
+/* Listas */
+ol { list-style: decimal; }
+	ol ol { list-style: upper-alpha; }
+		ol ol ol { list-style: upper-roman }
+
+ul { list-style: disc; }
+	ul ul { list-style: circle; }
+		ul ul ul { list-style: square; }
+
+li {
+	margin-left: 30px;
+	margin-left: 3rem;	/* 30 / $rembase */
+}
+
+/* Estilos */
+b, strong {
+	font-style: normal;
+	font-weight: bold;
+}
+
+i, em {
+	font-style: italic;
+	font-weight: normal;
+}
+
+b i, b em, strong i, strong em,
+i b, em b, i strong, em strong {
+	font-style: italic;
+	font-weight: bold; }
+
+dfn { font-style: italic; }
+
+mark {
+	background: #ff0;
+	color: #000;
+}
+
+pre {
+	font-family: "Courier New", Courier, monospace;
+	white-space: pre;
+	overflow: auto;
+}
+
+code {
+	border: 1px dotted #d59266;
+	padding: 0 5px;
+	padding: 0 0.5rem;		/* 5 / $rembase */
+	display: inline-block;
+	background: #eee;
+	color:#333;
+}
+
+
+/* TABELAS */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td, th { padding: 0; }
+	
+
+/* FORMULÁRIOS */
+button, input, optgroup, select, textarea {
+	color: inherit;
+	font: inherit;
+}
+
+button, html input[type="button"],
+input[type="reset"], input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+select { margin: inherit; }

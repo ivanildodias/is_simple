@@ -5,7 +5,7 @@
  */
 ?>
 		<footer id="footer">
-			<div id="footer_inner" class="limit">
+			<div id="footer_inner" class="conteiner">
 				<div class="inner">
 					<div id="footer_text">
 						<p>&copy; 2013-<?php echo date( 'Y' ); ?> | <a href="<?php get_url(); ?>" ><?php site_info(); ?></a>. Todos os direitos reservados.</p>

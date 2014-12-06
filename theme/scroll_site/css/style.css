@@ -1,105 +1,428 @@
-/*
-Theme Name: Ignus Studios 2.0 / Site
-Theme URI: http://ignusstudios.com/
-Description: Tema versão 2.0 do site Ignus Studios.
- 
-Author: Ivanildo Dias
-Author URI: http://ignusstudios.com/
-Version: 2.0
- 
-License: Creative Commons 3.0
-License URI: http://creativecommons.org/licenses/by/3.0
-*/
+/**
+ * Theme Name: Scrol Site 1.0
+ * Theme URI: http://ignusstudios.com/
+ * 
+ * Description: Tema baseado.
+ * 
+ * Author: Ivanildo Dias
+ * Author URI: https://github.com/ivanildodias
+ * Version: 1.0
+ * ------------------------------------------------------------------	
+ */
 
-
-/* PADRÕES DE ORGANIZAÇÃO
- * .seletor { [fonte e propriedades de texto]
- *			  [plano de fundo]
- *			  [tamanho]
- *			  [bordas]
- *			  [espaçamentos]
- *			  [posicionamento] }
+/**
+ * 	Notas
  * ----------------------------------------------------------------------------
+ * Essa folha de estilos usa valores rem com pixel como reserva para navegadores que não suportam o rem.
+ * 
+ * Os valores rem são calculados tendo como base a seguinte variável:
+ * $rembase = 10;
+ * 
+ * => Exemplo
+ * Use um valor em pixel, que ficará como reserva, e logo após coloque o valor rem
+ * para: font-size, padding, margins, etc.
+ * 		padding: 5px 0;
+ * 		padding: 0.5rem 0; ( 5 / $rembase )
+ * 
+ * Defina um font-size e em seguida defina um line-height baseado no font-size
+ * 		font-size: 20px;
+ * 		font-size: 2rem; ( 20 / $rembase )
+ * 		line-height: 1.5; ( 30 / 20(font-size) )
+ * 
+ * Se no seletor não estiver sendo definido o font-size, defina o line-height
+ * em pixels e em seguida em rem.
+ * 		.nova-div {
+ * 			line-height: 30px;
+ * 			line-height: 3rem; ( 30 / $rembase )
+ * 		}
+ * 
+ * => Espaçamento
+ * Para espaçamento use os valores 10px ou 20px
+ * para manter o ritmo no layout:
+ * 		.nova-div {
+ * 			margin: 10px 0;
+ * 			margin: 1rem 0; ( 10 / $rembase )
+ * 		}
+ * 
+ * => Leitura Complementar
+ * http://snook.ca/archives/html_and_css/font-size-with-rem
+ * http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
  */
 
 
 /**
- * RESET
+ * PRE-SET
  *
- * Adaptações feitas para otimizar a experiência do usuário nos mais variados navegadores.
+ * Ajustes pre-setados para unificação do tema.
  * ----------------------------------------------------------------------------
  */
+body{
+	background: #eee;
+	color: #333;
+	font-family: Helvetica, Arial, sans-serif;
+}
 
-* { font: inherit; font-size: 100%; font-style:normal; font-weight:normal; line-height: 20px; text-align: justify;
-	border: 0;
-	margin: 0; padding: 0;
-	vertical-align: baseline; }
+p, h1, h2, h3, h4, h5, h6, pre, code, ul, ol, form, form li {
+	margin-bottom: 20px;
+	margin-bottom: 2rem;	/* 20 / $rembase */
+}
 
-h1, h2, h3, h4, h5,h6 { font-family: 'Open Sans', sans-serif; font-weight: bold; }
-h3, h4 { line-height:30px; }
-h1 { font-size: 48px; line-height: 60px; margin-bottom: 20px; }
-h2 { font-size: 18px; font-style: italic; }
-h3 { font-size: 24px; }
-h4 { font-size: 20px; }
-h5 { font-size: 16px; }
-h6 { font-size: 12px; }
+ul ul, ol ol, ul ol, ol ul, p:last-child { margin-bottom: 0; }
 
-ol li { list-style: decimal; }
-ul li { list-style: disc; }
-li { margin-left: 30px; }
+hr {
+	margin: 30px auto;
+	margin: 3rem auto;				/* 30 / $rembase */
+	border-bottom: 1px solid #d59266;
+	border-top: 1px solid #956648;
+	clear: both;
+}
 
-b, strong { font-style: normal; font-weight: bold; }
-i, em { font-style: italic; font-weight: normal; }
-b i, b em, strong i, strong em,
-i b, em b, i strong, em strong { font-style: italic; font-weight: bold; }
+pre {
+	border: 1px solid #d59266;
+	padding: 10px;
+	padding: 1rem;			/* 10 / $rembase */
+	background: #f8f8f8;
+	color: #333;
+	overflow: auto;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+	color: #000;
+	font-family: 'Roboto', sans-serif;
+}
+
+.sub-title {
+	margin-top: -20px;
+	margin-top: -2rem;	/* 20 / $rembase */
+}
+
+/* Parágrafos */
+p { text-align: justify; }
+
+/* Links */
+a, a:visited {
+	color: #d93;
+}
+
+a:hover, a:focus {
+	color: #d33;
+	font-weight: bold;
+}
+
+.logo-link, .img-link { display: inline; }
+
+/* Imagens */
+figure { position: relative; }
+
+figcaption {
+	padding: 5px 10px;
+	padding: 0.5rem 1rem;		/* 5 10 / $rembase */
+	background: #493223;
+	color: #fff;
+	opacity: 0.8;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+img { max-width: 100%; }
+
+a > img { display: block; }
 
 /* Formulários */
-input, textarea { padding: 5px; border: 1px solid #ccc; }
+.button, a.button, button, input, textarea {
+	padding: 0 5px;
+	padding: 0 0.5rem;		/* 0 5 / $rembase */
+	font-size: 16px;
+	font-size: 1.6rem;		/* 16 / $rembase */
+	line-height: 1.875em;	/* 30 / font-size */
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
 
-input:focus, textarea:focus { background: #fefedd; }
+.button, a.button, button, html input[type="button"],
+input[type="reset"], input[type="submit"] {
+	border: 1px solid #563b29;
+	display: inline-block;
+	background: #d59266;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: 1px 1px 0 #563b29;
+	-webkit-box-shadow: inset -1px -1px 0 0 #563b29;
+	box-shadow: inset -1px -1px 0 0 #563b29;
+}
+
+.button:hover, a.button:hover, button:hover, html input[type="button"]:hover,
+input[type="reset"]:hover, input[type="submit"]:hover {
+	background: #d5a88a;
+}
+
+.button:active, a.button:active, button:active, html input[type="button"]:active,
+input[type="reset"]:active, input[type="submit"]:active {
+	background: #956648;
+}
+
+input[type="text"], input[type="search"],
+input[type="email"], input[type="url"],
+textarea { border: 1px solid #d59266; }
+
+input[type="text"]:focus, input[type="search"]:focus,
+input[type="email"]:focus, input[type="url"]:focus,
+textarea:focus {
+	border-color: #956648;
+	-webkit-box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.2);
+	box-shadow:inset 0 0 5px 0 rgba(0,0,0,0.2);
+}
 
 label { display: block; }
-label.error { width: 100%; padding: 5px; color: #b01117; font-weight: bold; }
+label.error {
+	width: 100%;
+	color: #d33;
+	font-weight: bold;
+}
 
-input[type=submit], input[type=button] { cursor: pointer; border: 1px solid #ccc; }
-input[type=submit]:hover, input[type=button]:hover { background: #ccc; border: 1px solid #aaa; }
+form ul { list-style: none; }
+form li { margin-left: 0; }
+form span.required {
+	color: #d33;
+	font-weight: bold;
+}
 
-form p { font-size: 16px; margin-bottom: 10px; }
-form li { list-style: none; margin-left: 0; margin-bottom: 10px; }
-form span.required { color: #b01117; font-weight: bold; }
+::-webkit-input-placeholder {
+	color: #444;
+	font-size: 14px;
+	font-size: 1.4rem;		/* 14 / $rembase */
+	line-height: 2.1428em;	/* 30 / font-size */
+	font-style: italic;
+}
 
+::-moz-placeholder {
+	color: #444;
+	font-size: 14px;
+	font-size: 1.4rem;		/* 14 / $rembase */
+	line-height: 2.1428em;	/* 30 / font-size */
+	font-style: italic;
+}
+
+:-ms-input-placeholder {
+	color: #444;
+	font-size: 14px;
+	font-size: 1.4rem;		/* 14 / $rembase */
+	line-height: 2.1428em;	/* 30 / font-size */
+	font-style: italic;
+}
 
 
 /**
  * PADRÕES REPETITIVOS
  *
- * Classes que são usadas repetidamente no template.
+ * Classes usadas na formação do tema.
  * ----------------------------------------------------------------------------
  */
+.inner {
+	padding: 10px;
+	padding: 1rem;	/* 10 / $rembase */
+}
 
-#grid { width: 100%; min-width: 900px; height: 2000px; background: url('../img/grid.png') top center repeat-y; position: absolute; top: 0; left: 0; opacity: 0.15; display: none; }
+.clear {
+	clear: both;
+	float: none;
+}
 
-.clear { clear: both; }
+.hidden { display: none; }
 
-.inner { padding: 20px; }
+.radius5 {
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
 
-.limit { width: 80%; max-width: 900px; margin: 0 auto; }
+.radius5-l {
+	-webkit-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
+}
 
-.radius5 { -webkit-border-radius: 5px; border-radius: 5px; }
+.radius5-r {
+	-webkit-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+}
+
+
+.radius10 {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.radius10-rb {
+	-webkit-border-radius: 0 0 10px 0;
+	border-radius: 0 0 10px 0;
+}
+
+.radius10-lt {
+	-webkit-border-radius: 10px 0 0 0;
+	border-radius: 10px 0 0 0;
+}
+
+.transition {
+	-webkit-transition: all 600ms ease;
+	-moz-transition: all 600ms ease;
+	-ms-transition: all 600ms ease;
+	-o-transition: all 600ms ease;
+	transition: all 600ms ease;
+}
+
+.shadow {
+    -webkit-box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Alinhamentos */
+.alignleft, .left {
+	float: left;
+	margin: 0 20px 10px 0;
+	margin: 0 2rem 1rem 0;	/* 0 20 10 0 / $rembase */
+}
+
+.alignright, .right {
+	float: right;
+	margin: 0 0 10px 20px;
+	margin: 0 0 1rem 2rem;	/* 0 0 10 20 / $rembase */
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto 10px;
+	margin: 0 auto 1rem;	/* 0 auto 10 / $rembase */
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center, .text-centre { text-align: center; }
+
+/* Formulários */
+.input-group {
+	border-collapse: separate;
+	display: table;
+	width: 100%;
+}
+
+.input-group input,
+.input-group-addon,
+.input-group-button { display: table-cell; }
+
+.input-group-addon,
+.input-group-button {
+	min-width: 1%;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+
+.input-group-addon {
+	border: 1px solid #d59266;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.input-group-button { position: relative; }
+
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-button:not(:first-child):not(:last-child) > *,
+.input-group input:not(:first-child):not(:last-child) {
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.input-group-addon:last-child,
+.input-group-button:last-child > *,
+.input-group input:last-child {
+	-webkit-border-top-left-radius: 0;
+	border-top-left-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.input-group-addon:first-child,
+.input-group-button:first-child > *,
+.input-group input:first-child {
+	-webkit-border-top-right-radius: 0;
+	border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
 
 
 /**
- * ESTRUTURA BÁSICA
+ * MENUS DE NAVEGAÇÃO
  *
- * Tags relacionadas a estrutura base do template.
+ * Ajustes para os menus de navegação do tema.
  * ----------------------------------------------------------------------------
  */
+nav .nav, nav .sub-nav { list-style: none; }
 
-a, a:visited { text-decoration: none; color: #d60; }
-a:hover { color: #b01117; font-weight: bold; }
+nav ul { margin-bottom: 0; }
 
-body { color: #000; font-family: 'Quattrocento Sans', sans-serif; font-size: 14px;
- 	   background: #ccc; }
+nav li {
+	margin-left: 0;
+	position: relative;
+}
+
+nav a {
+	display: block;
+	float: none;
+	padding: 5px 10px;
+	padding: 0.5rem 1rem;	/* 5 10 / $rembase */
+}
+
+nav a.more-item { min-width: 1%; }
+
+nav .nav,
+.nav-link-group {
+	display: table;
+	border-collapse: separate;
+	width: 100%;
+}
+
+nav .nav {
+	border-spacing: 5px 0;
+	border-spacing: 0.5rem 0;	/* 5 0 / $rembase */
+}
+
+.nav-link-group { border-spacing: 0; }
+
+nav .nav > li,
+.nav-link-group a { display: table-cell; }
+
+nav .nav > li > a,
+.nav-link-group a { text-align: center; }
+
+.nav-link-group > a:last-child {
+	-webkit-border-top-left-radius: 0;
+	border-top-left-radius: 0;
+	-webkit-border-bottom-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.nav-link-group > a:first-child {
+	-webkit-border-top-right-radius: 0;
+	border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+nav .sub-nav {
+	position: absolute;
+	top: 120%;
+	z-index: 1000;
+	width: 120%;
+}
+
+nav .sub-nav li,
+nav .sub-nav li a {
+	margin: 0;
+	width: 100%;
+}
 
 
 /**
@@ -108,13 +431,16 @@ body { color: #000; font-family: 'Quattrocento Sans', sans-serif; font-size: 14p
  * Tags relacionadas ao cabeçalho principal do template.
  * ----------------------------------------------------------------------------
  */
-
-#logo_header img { height: 110px;
-				   display: block;
-				   margin: 0 auto; }
-
 #site_title, #site_description { text-align: center; }
-	#site_title a { font-weight: bold; }
+
+#site_title a { color: #333; }
+
+#site_description {
+	color: #888;
+	font-size: 16px;
+	font-size: 1.6rem;		/* 16 / $rembase */
+	line-height: 1.25em;	/* 20 / font-size */
+}
 
 
 /**
