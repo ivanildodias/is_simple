@@ -4,7 +4,7 @@
  * Ajustes para um grid flesível no tema.
  * ----------------------------------------------------------------------------
  */
-#grid, #grid > div.conteiner { height: 100%; display: none; }
+#grid, #grid > div.conteiner { height: 100%; }
 #grid { position: absolute; width: 100%; z-index: 9999; }
 
 .conteiner, .linha, [class*="col_"] {

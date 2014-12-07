@@ -6,7 +6,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 	<head>
 		<meta charset="utf-8">
 		
@@ -28,6 +28,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php get_url( 'theme' ); ?>css/style.css">
 
 		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/jquery.js"></script>
+        <script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/modernizr.js"></script>
 		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/geral.js"></script>
 	
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
@@ -36,10 +37,11 @@
 	</head>
 
 	<body>
-		<div id="grid"></div>
+		<div id="grid" style="display: none;"><div class="conteiner"></div></div>
 		<?php include_once 'analyticstracking.php'; ?>
 	
-		<header id="header">
+		<header id="header" class="fixed">
+            
 			<section id="header-conteiner" class="conteiner">
 				<div class="linha">
 					
@@ -53,20 +55,18 @@
 						<h1 id="site-title"><a href="<?php get_url(); ?>"><?php site_info(); ?></a></h1>
 						<h2 id="site-description" class="sub-title"><?php site_info( 'site_desc' ); ?></h2>
 					</hgroup> <!-- #masthead -->
+            
+                    <a href="" id="pull">Menu</a>
+                    <nav id="main-menu">
+                        <ul class="nav">
+                            <li><a class="select" href="#home">Home</a></li>
+                            <li><a href="#empresa">Empresa</a></li>
+                            <li><a href="#portfolio">Portfólio</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                        </ul>
+                    </nav> <!-- #main-menu -->
 					
 				</div>
 			</section> <!-- #header-conteiner -->
-                
-            <div class="fixed">
-                <div class="conteiner">
-                    <nav id="main-menu">
-                        <ul class="nav">
-                            <li><a href="<?php get_url(); ?>">Home</a></li>
-                            <li><a href="#">Empresa</a></li>
-                            <li><a href="#">Portfólio</a></li>
-                            <li><a href="#">Contato</a></li>
-                        </ul>
-                    </nav> <!-- #main-menu -->
-                </div>
-            </div>
+            
 		</header> <!-- #header -->
