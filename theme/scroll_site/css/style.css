@@ -88,7 +88,7 @@ pre {
 
 /* Títulos */
 h1, h2, h3, h4, h5, h6 {
-	color: #000;
+	color: #003;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -106,7 +106,7 @@ a, a:visited {
 }
 
 a:hover, a:focus {
-	color: #008;
+	color: teal;
 	font-weight: bold;
 }
 
@@ -226,10 +226,13 @@ form span.required {
 	padding: 1rem;	/* 10 / $rembase */
 }
 
-.clear {
-	clear: both;
-	float: none;
+.clear, .clear:before, .clear:after, .inner:after {
+    content: "";
+    display: table;
+    clear: both;
 }
+
+.fixed { position: fixed; }
 
 .hidden { display: none; }
 
@@ -431,7 +434,7 @@ nav .sub-nav li a {
  * Tags relacionadas a uma personalização geral do template.
  * ----------------------------------------------------------------------------
  */
-#header, #main {
+#header, #main, .header, .content-site {
     margin-bottom: 20px;
     margin-bottom: 2rem;   /* 20 / $rembase */
 }
@@ -443,22 +446,53 @@ nav .sub-nav li a {
  * Tags relacionadas ao cabeçalho principal do template.
  * ----------------------------------------------------------------------------
  */
-#logo-header {
+#header-conteiner .linha {
     padding-top: 10px;
     padding-top: 1rem;   /* 10 / $rembase */
 }
 
-#logo-header img { height: 80px; }
+#logo-header { margin-bottom: 0; }
 
-#site-title a { color: #006; }
+#logo-header img { height: 50px; }
+
+#site-title {
+    font-size: 24px;
+    font-size: 2.4rem;      /* 24 / $rembase */
+    line-height: 1.25em;    /* 30 / font-size */
+}
+
+#site-title a { color: #003; }
 
 #site-description {
-	color: royalblue;
-	font-size: 16px;
-	font-size: 1.6rem;		/* 16 / $rembase */
-	line-height: 1.25em;	/* 20 / font-size */
+	color: teal;
+	font-size: 14px;
+	font-size: 1.4rem;		/* 14 / $rembase */
+	line-height: 1.4285em;	/* 20 / font-size */
 	margin-bottom: 0;
 }
+
+
+/**
+ * MAIN-MENU
+ *
+ * Menu principal do template.
+ * ----------------------------------------------------------------------------
+ */
+#header > .fixed { top: 0; width: 100%; }
+
+#main-menu {
+    background: white;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 10px;
+    top: 1rem;  /* 10 / $rembase */
+    right: 0;
+    z-index: 9999;
+}
+
+#main-menu a {}
+
+#main-menu a:hover {}
 
 
 /**
@@ -467,12 +501,16 @@ nav .sub-nav li a {
  * Tags relacionadas ao cabeçalho de conteúdo do template.
  * ----------------------------------------------------------------------------
  */
-
-.header { margin-bottom: 20px; }
-
-.header h3 { font-size: 30px; line-height: 40px; text-align: center; text-transform: uppercase;
-			 border-bottom: 2px solid #b01117;
-			 padding-bottom: 10px; }
+.header h3 {
+    font-size: 30px;
+    font-size: 3rem;        /* 30 / $rembase */
+    line-height: 1.3333em;  /* 40 / font-size */
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid teal;
+    padding-bottom: 10px;
+    padding-bottom: 1rem;   /* 10 / $rembase */
+}
 
 
 /**
@@ -482,9 +520,10 @@ nav .sub-nav li a {
  * ----------------------------------------------------------------------------
  */
 
-#content_site { background: rgba(255,255,255,0.5);
-				-webkit-border-radius: 20px; border-radius: 20px;
-				margin-bottom: 20px; }
+#content-site {
+    background: white;
+    border: 1px solid #ccc;
+}
 
 .content h4 { text-align: center; }
 
@@ -517,10 +556,10 @@ nav .sub-nav li a {
 		  background: url('../img/footer_bg.png') no-repeat top center;
 		  width: 100%; height: 150px; }
 
-	#footer_text { margin-top: 85px;
+	#footer-text { margin-top: 85px;
 				   float: left; }
 	
-	#footer_logo { margin-top: 55px;
+	#footer-logo { margin-top: 55px;
 				   display: block; float: right; }
 
 
@@ -577,8 +616,8 @@ nav .sub-nav li a {
 	#contact_form input[type=submit] { width: 100%; }
 	
 	#footer { background-image: none; background-color: #000; height: auto; }
-	#footer_text, #footer_text p, #footer_logo { text-align: center; width: 100%; float: none;  margin: 0; }
-	#footer_logo { margin-top: 10px; }
+	#footer-text, #footer-text p, #footer-logo { text-align: center; width: 100%; float: none;  margin: 0; }
+	#footer-logo { margin-top: 10px; }
 	
 	#animado, #animado2 { animation: none; }
 	#animado2 { opacity: 0.5; filter: alpha(opacity=50); }

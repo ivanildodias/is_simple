@@ -56,4 +56,17 @@
 					
 				</div>
 			</section> <!-- #header-conteiner -->
+                
+            <div class="fixed">
+                <div class="conteiner">
+                    <nav id="main-menu">
+                        <ul class="nav">
+                            <li><a href="<?php get_url(); ?>">Home</a></li>
+                            <li><a href="#">Empresa</a></li>
+                            <li><a href="#">Portfólio</a></li>
+                            <li><a href="#">Contato</a></li>
+                        </ul>
+                    </nav> <!-- #main-menu -->
+                </div>
+            </div>
 		</header> <!-- #header -->

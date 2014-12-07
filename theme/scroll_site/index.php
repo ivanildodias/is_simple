@@ -5,7 +5,7 @@
  */
 ?>
 <article id="main">
-	<div id="content_site" class="conteiner">
+	<div id="content-site" class="conteiner">
 		<div class="inner">
 			<header class="header">
 				<h3><?php content_site( 'title' ); ?></h3>
