@@ -3,15 +3,9 @@
  * Rodapé do site
  * ------------------------------------------------------------------
  */
-
-$x = new Pages();
-
-echo '<pre>';
-print_r($x);
-echo '</pre>';
  
 ?>
-		<footer id="footer">
+		<footer id="footer" class="fixed">
 			<div id="footer-inner" class="conteiner">
 				<div class="inner">
 					<div id="footer-text">

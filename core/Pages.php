@@ -3,10 +3,13 @@
 class Pages {
     public $pages = array();
     public $total_pages = '';
-    public $session_page = '';
     
     public function __construct () {
-        global $config;
+        $this->load_all_pages();
+    }
+
+	private function load_all_pages() {
+		global $config;
         $page_dir = $config['page_dir'];
         
         if ( is_dir( $page_dir ) ) :
@@ -19,9 +22,13 @@ class Pages {
                         $name = explode( '.', $pages_file );
                         $name = str_replace( '.' . end( $name ), '', $pages_file );
                         
-                        $this->pages[$name] = array(
-                            'path' => $page_dir . $pages_file
-                        );
+						if ( $name != 'blank' ) :
+	                        $this->pages[$name] = array(
+	                            'path' => $page_dir . $pages_file
+	                        );
+							
+							include $this->pages[$name]['path'];
+						endif;
                         
                     endif;
                 endwhile;
@@ -30,12 +37,11 @@ class Pages {
         endif;
         
         $this->total_pages = count( $this->pages );
-        
-        for ( $i = 0; $i < $total_pages; $i++ ) :
-            include $this->pages[$i]['path'];
-            $this->session_page = $_SESSION['page'];
-        endfor;
-    }
+	}
+	
+	public function array_all_page_names() {
+		return array_keys( $this->pages );
+	}
     
     public function add_page( $page = NULL, $filename = NULL ) {
         global $config;
@@ -45,13 +51,23 @@ class Pages {
     
     public function del_page( $page ) {
         if ( array_key_exists( $page, $this->pages ) ) unset( $this->pages[$page] );
+		
+		$this->total_pages = count( $this->pages );
     }
     
-    public function set_val( $page = NULL, $term = NULL, $val = NULL ) {
+    public function set_page_val( $page = NULL, $term = NULL, $val = NULL ) {
         if ( $page != NULL && $term != NULL && $val != NULL ) $this->pages[$page][$term] = $val;
     }
+	
+	public function set_all_page_values( $page_id = NULL, $content = NULL ){
+		if ( $page_id != NULL && $content != NULL ) :
+			foreach ( $content as $key => $val ) :
+				$this->set_page_val( $page_id, $key, $val );
+			endforeach;
+		endif;
+	}
     
-    public function get_val( $page = NULL, $term = NULL ) {
+    public function get_page_val( $page = NULL, $term = NULL ) {
         if ( $page != NULL && $term != NULL && array_key_exists( $page, $this->pages ) ) :
             return $this->pages[$page][$term];
         else :
@@ -59,3 +75,5 @@ class Pages {
         endif;
     }
 }
+
+$pages = new Pages();

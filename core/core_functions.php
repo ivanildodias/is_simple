@@ -1,5 +1,16 @@
 <?php defined( 'is_running' ) or die( 'Não é um ponto de entrada...' );
 
+
+function filename( $filename ) {
+	$file = explode( '\\', $filename );
+	$file = end( $file );
+	$name = explode( '.', $file );
+	$name = str_replace( '.' . end( $name ), '', $file );
+	
+	return $name;
+}
+
+
 /**
  * Retorna as informações solicitadas do site
  * 

@@ -3,4 +3,7 @@
  * Estrutura de conteúdo do site
  * ------------------------------------------------------------------
  */
-loop_pages(); ?>
+print_page( 'home' );
+print_page( 'empresa' );
+print_page( 'portfolio' );
+print_page( 'contato' );

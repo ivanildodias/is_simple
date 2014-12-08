@@ -2,27 +2,83 @@
 
 /**
  * Nome da página: Blank
- * Breve descrição: Essa é uma página em branco para servir de modelo para as próximas
- * páginas que você irá desenvolver para o seu site.
+ * Breve descrição: Essa é uma página em branco para servir de modelo
+ * para as próximas páginas que você irá desenvolver para o seu site.
+ * Faça as alterações que deseja e não se esqueça de salvar com o nome
+ *  que deseja para a sua página usando o comando SALVAR COMO.
  * ------------------------------------------------------------------
  */
 
+/**
+ * ESSAS INFORMAÇÕES NÃO PODEM SER ALTERADAS.
+ * PODE OCASIONAR EM ERRO NA LEITURA DO CONTEÚDO DAS PÁGINAS.
+ * ------------------------------------------------------------------
+ */
+$page_id = filename( __FILE__ );
 $content = array();
-$_SESSION['page'] = '';
 
+/**
+ * Título do navegador
+ * 
+ * Título que aparecerá no cabeçalho do navegador.
+ * ------------------------------------------------------------------
+ */
 $content['head_title'] = '';
+
+/**
+ * Título
+ * 
+ * Título da página exibido como conteúdo do site.
+ * ------------------------------------------------------------------
+ */
 $content['title'] = '';
 
+/**
+ * Autor
+ * 
+ * Quem escreveu essa página?
+ * ------------------------------------------------------------------
+ */
+$content['author'] ='';
+
+/**
+ * Categorias
+ * 
+ * Que categorias deseja aplicar a essa página?
+ * ------------------------------------------------------------------
+ */
+$content['categs'] = '';
+
+/**
+ * Tags
+ * 
+ * Deseja aplicar alguma tag a essa página?
+ * ------------------------------------------------------------------
+ */
+$content['tags'] = '';
+
+/**
+ * Conteúdo
+ * 
+ * Digite o conteúdo que deseja que seja exibido na sua página.
+ * ------------------------------------------------------------------
+ */
 ob_start();
 // Digite abaixo todo o conteúdo da página ?>
 
 
 
 <?php
+
+/**
+ * ESSAS INFORMAÇÕES NÃO PODEM SER ALTERADAS.
+ * PODE OCASIONAR EM ERRO NA LEITURA DO CONTEÚDO DAS PÁGINAS.
+ * ------------------------------------------------------------------
+ */
 $content['content'] = ob_get_contents();
 ob_end_clean();
 
-$_SESSION['page'] = $content;
+$this->set_all_page_values( $page_id, $content );
 
 
 

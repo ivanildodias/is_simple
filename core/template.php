@@ -9,27 +9,24 @@
  * ------------------------------------------------------------------
  */
 function content_site( $term, $display = '' ) {
-	global $config;
+	global $config, $pages;
 	
 	$url = $config['base_url'];
-	$page_dir = $config['page_dir'];
-	$page_inc = $page_dir . $url . '.php';
-	$page = '';
+	$page_names = $pages->array_all_page_names();
+	$current_page = '';
 	
 	if ( is_home() ) :
-		include $page_dir.'home.php';
-	elseif ( file_exists( $page_inc ) ) :
-		include $page_inc;
+		$current_page = 'home';
+	elseif ( in_array( $url, $page_names ) ) :
+		$current_page = $url;
 	else :
-		include $page_dir.'404.php';
+		$current_page = '404';
 	endif;
 	
-	$page = $_SESSION['page'];
-	
 	if ( $display == 'display' ) :
-		return $page[$term];
+		return $pages->get_page_val( $current_page, $term );
 	else :
-		echo $page[$term];
+		echo $pages->get_page_val( $current_page, $term );
 	endif;
 }
 
@@ -100,9 +97,6 @@ function head_title( $sep = '-' ) {
 		echo content_site( 'head_title' ) . $sep . $site_name;
 	endif;
 }
-
-// Carrega o tema
-load_theme();
 
 
 

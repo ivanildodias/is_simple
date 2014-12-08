@@ -1,9 +1,11 @@
 <?php defined( 'is_running' ) or die( 'Não é um ponto de entrada...' );
 
 /**
- * Nome da página: 404
- * Breve descrição: Página padrão que é exibida quando a url digitada não é
- * encontrada nos arquivos de páginas.
+ * Nome da página: Blank
+ * Breve descrição: Essa é uma página em branco para servir de modelo
+ * para as próximas páginas que você irá desenvolver para o seu site.
+ * Faça as alterações que deseja e não se esqueça de salvar com o nome
+ *  que deseja para a sua página usando o comando SALVAR COMO.
  * ------------------------------------------------------------------
  */
 
@@ -21,7 +23,7 @@ $content = array();
  * Título que aparecerá no cabeçalho do navegador.
  * ------------------------------------------------------------------
  */
-$content['head_title'] = 'Página não encontrada';
+$content['head_title'] = 'Portfólio';
 
 /**
  * Título
@@ -29,7 +31,7 @@ $content['head_title'] = 'Página não encontrada';
  * Título da página exibido como conteúdo do site.
  * ------------------------------------------------------------------
  */
-$content['title'] = 'Página não encontrada';
+$content['title'] = 'Portfólio Ignus Studios.';
 
 /**
  * Autor
@@ -37,7 +39,7 @@ $content['title'] = 'Página não encontrada';
  * Quem escreveu essa página?
  * ------------------------------------------------------------------
  */
-$content['author'] ='';
+$content['author'] ='Ivanildo Dias';
 
 /**
  * Categorias
@@ -64,7 +66,7 @@ $content['tags'] = '';
 ob_start();
 // Digite abaixo todo o conteúdo da página ?>
 
-<p>Desculpe, mas a página solicitada não existe.</p>
+<p>Essa é a página de portfólio.</p>
 
 <?php
 
@@ -77,5 +79,6 @@ $content['content'] = ob_get_contents();
 ob_end_clean();
 
 $this->set_all_page_values( $page_id, $content );
+
 
 
