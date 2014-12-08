@@ -2,6 +2,8 @@
 
 class Pages {
     public $pages = array();
+    public $total_pages = '';
+    public $session_page = '';
     
     public function __construct () {
         global $config;
@@ -26,13 +28,34 @@ class Pages {
                 
             endif;
         endif;
+        
+        $this->total_pages = count( $this->pages );
+        
+        for ( $i = 0; $i < $total_pages; $i++ ) :
+            include $this->pages[$i]['path'];
+            $this->session_page = $_SESSION['page'];
+        endfor;
     }
     
     public function add_page( $page = NULL, $filename = NULL ) {
         global $config;
         
-        if( $page != NULL ) :
-            $this->pages[$page] = $config['page_dir'] . $filename . '.php';
+        if ( $page != NULL ) $this->pages[$page] = $config['page_dir'] . $filename . '.php';
+    }
+    
+    public function del_page( $page ) {
+        if ( array_key_exists( $page, $this->pages ) ) unset( $this->pages[$page] );
+    }
+    
+    public function set_val( $page = NULL, $term = NULL, $val = NULL ) {
+        if ( $page != NULL && $term != NULL && $val != NULL ) $this->pages[$page][$term] = $val;
+    }
+    
+    public function get_val( $page = NULL, $term = NULL ) {
+        if ( $page != NULL && $term != NULL && array_key_exists( $page, $this->pages ) ) :
+            return $this->pages[$page][$term];
+        else :
+            return FALSE;
         endif;
     }
 }
