@@ -6,6 +6,8 @@ require_once 'core_functions.php';
 // Carrega códigos padrão do sistema
 require_once $config['inc_dir'] . 'load_includes.php';
 
+require_once 'Pages.php';
+
 // Funções essenciais para o funcionamento do sistema
 require_once 'template.php';
 

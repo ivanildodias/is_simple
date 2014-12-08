@@ -26,7 +26,7 @@ $( document ).ready( function() {
 	$( 'li.childselected_li' ).find( 'a.more-item' ).addClass( 'childselected' );
 	
 	// Ajuste click scroll to id no #main-menu
-	$( 'a[href^="#"]' ).click( function() {
+	$( '#main-menu a[href^="#"]' ).click( function() {
 		$( 'html, body' ).animate({
 			scrollTop : $( this.hash ).offset().top
 		}, 500 );

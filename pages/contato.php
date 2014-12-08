@@ -4,6 +4,7 @@ $content = array();
 $_SESSION['page'] = '';
 
 $content['head_title'] = 'Contato';
+$content['id_section'] = 'contato';
 $content['title'] = 'Formulário de Contato';
 
 ob_start();
