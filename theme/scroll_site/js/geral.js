@@ -45,9 +45,6 @@ $( document ).ready( function() {
 		var pull = $( '#pull' );									// Botão Exibir/Ocultar menu e formulário de pesquisa
 		var cnav = $( '#nav-content' );							// Conteiner do menu e formulário de pesquisa
 		var wWidth = $( window ).innerWidth();					// Largura da janela de exibição do site
-		var wHeight = $( window ).innerHeight();
-		
-		$( '.section' ).css( 'height', wHeight );
 		
 		if ( wWidth <= 650 ) {		// Se a largura for menor ou igual a 650px...
 			cnav.addClass( 'hidden' ).removeAttr( 'style' );	// Oculta o conteiner do menu
@@ -58,10 +55,18 @@ $( document ).ready( function() {
 		}
 	}
 	
+	function scroll_site(){
+	    var wHeight = $( window ).innerHeight();
+        
+        $( '.section' ).css( 'height', wHeight );
+	}
+	
 	// Executa a função para o menu responsivo assim que a página é carregada
 	responsiveMenu();
+	scroll_site();
 	
 	// Executa a função para o menu responsivo assim que a largura da janela é alterada
 	$( window ).resize( responsiveMenu );
+	$( window ).resize( scroll_site );
 	
 });

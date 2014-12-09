@@ -21,3 +21,19 @@ function print_page( $page_name ) {
 }
 
 
+function print_all_pages(){
+    global $config, $pages;
+    
+    $url = $config['base_url'];
+    $page_names = $pages->array_all_page_names();
+    $current_page = '';
+    
+    if ( is_home() || in_array( $url, $page_names ) ) :
+        print_page( 'home' );
+        print_page( 'empresa' );
+        print_page( 'portfolio' );
+        print_page( 'contato' );
+    else :
+        print_page( '404' );
+    endif;
+}
