@@ -24,9 +24,9 @@ $config['base_dir'] = dirname( __FILE__ ) . '/';
 $config['core_dir'] = $config['base_dir'] . 'core/';
 $config['inc_dir'] = $config['base_dir'] . 'inc/';
 $config['page_dir'] = $config['base_dir'] . 'pages/';
-$config['theme_dir'] = $config['base_dir'] . 'theme/' . $config['theme'] . '/';
+$config['theme_dir'] = $config['base_dir'] . 'themes/' . $config['theme'] . '/';
 
 // URL'S
 $count_localhost_base_url = strlen( $config['url']['home'] ) - 16;
 $config['base_url'] = ( $_SERVER['HTTP_HOST'] = 'localhost' ) ? substr( $_SERVER['REQUEST_URI'], $count_localhost_base_url ) : $_SERVER['REQUEST_URI'];
-$config['url']['theme'] = $config['url']['home'] . 'theme/' . $config['theme'] . '/';
+$config['url']['theme'] = $config['url']['home'] . 'themes/' . $config['theme'] . '/';
