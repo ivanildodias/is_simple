@@ -3,4 +3,8 @@
  * Estrutura de conteúdo do site
  * ------------------------------------------------------------------
  */
-print_all_pages();
+?>
+
+<main id="scroll-site">
+	<?php print_all_pages(); ?>
+</main>

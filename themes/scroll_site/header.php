@@ -29,6 +29,7 @@
 
 		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/jquery.js"></script>
         <script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/modernizr.js"></script>
+		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/scrollSite.js"></script>
 		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/geral.js"></script>
 	
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
@@ -56,7 +57,6 @@
 						<h2 id="site-description" class="sub-title"><?php site_info( 'site_desc' ); ?></h2>
 					</hgroup> <!-- #masthead -->
             
-                    <button id="pull" class="hidden">&#9664; Menu</button>
                     <nav id="main-menu">
                         <ul class="nav">
                             <li><a class="selected" href="#home">Home</a></li>
