@@ -98,6 +98,54 @@ function head_title( $sep = '-' ) {
 	endif;
 }
 
+function get_menu( $menu_options = array() ) {
+	global $pages;
+	
+	$defaults = array(
+		'menu' => 'main-menu',
+		'container' => 'nav',
+		'container_id' => '',
+		'container_class' => '',
+		'menu_id' => '',
+		'menu_class' => ''
+	);
+	
+	$menu_options = array_merge( $defaults, $menu_options );
+	
+	$all_pages = $pages->array_all_page_names();
+	
+	$menu_output  = '<' . $menu_options['container'];
+	
+	if ( $menu_options['container_id'] != '' )
+		$menu_output .= ' id="' . $menu_options['container_id'] . '"';
+	
+	if ( $menu_options['container_class'] != '' )
+		$menu_output .= ' class="' . $menu_options['container_class'] . '"';
+	
+	$menu_output .= '>';
+	
+	$menu_output .= '<ul';
+	
+	if ( $menu_options['menu_id'] != '' )
+		$menu_output .= ' id="' . $menu_options['menu_id'] . '"';
+	
+	if ( $menu_options['menu_class'] != '' )
+		$menu_output .= ' class="' . $menu_options['menu_class'] . '"';
+	
+	$menu_output .= '>';
+	
+	for ( $i = 0; $i < count( $all_pages ); $i++ ) :
+		$menu_output .= '<li><a href="#' . $all_pages[$i] . '">' . $all_pages[$i] . '</a></li>';
+	endfor;
+	
+	$menu_output .= '</ul>';
+	
+	$menu_output .= '</' . $menu_options['container'] . '>';
+	
+	echo $menu_output;
+}
+
+
 
 
 

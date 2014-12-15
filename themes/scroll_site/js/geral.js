@@ -3,7 +3,8 @@ $( document ).ready( function() {
     // Ajustes gerais
 	$( 'a' ).addClass( 'transition' );
 	
-	$( '#scroll-site' ).scrollSite({
-		menu: '#main-menu'
+	$( '#scroll-site' ).scroll_site({
+		menu: '#main-menu',
+		show_menu: true
 	});
 });

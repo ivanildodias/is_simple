@@ -22,7 +22,7 @@ class Pages {
                         $name = explode( '.', $pages_file );
                         $name = str_replace( '.' . end( $name ), '', $pages_file );
                         
-						if ( $name != 'blank' ) :
+						if ( $name != 'pages_config' ) :
 	                        $this->pages[$name] = array(
 	                            'path' => $page_dir . $pages_file
 	                        );
@@ -36,10 +36,14 @@ class Pages {
             endif;
         endif;
         
+		$this->del_page( 'blank' );
+		
         $this->total_pages = count( $this->pages );
 	}
 	
-	public function array_all_page_names() {
+	public function array_all_page_names( $total = FALSE ) {
+		if ( ! $total ) $this->del_page( '404' );
+		
 		return array_keys( $this->pages );
 	}
     
