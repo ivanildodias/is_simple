@@ -39,12 +39,12 @@
 			}
 			
 			// Ajustes para sub-menus
-			var list_item = $( options.menu ).children( 'li' );
+			/*var list_item = $( options.menu + ' li' );
 			var link_item = list_item.children( 'a' );
 			
 			if ( list_item.children( 'ul' ) ) {
 				link_item.addClass( 'haschildren' );
-			}
+			}*/
 			
 			$( 'a.haschildren' ).before( '<div class="nav-link-group"></div>' );
 			$( '.nav-link-group' ).append( $( '.nav-link-group' ).parent().find( 'a.haschildren' ) );

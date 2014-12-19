@@ -23,7 +23,7 @@ $content = array();
  * Especifique nessa variável a págian da qual ela é sub-página.
  * ------------------------------------------------------------------
  */
-$content['parent_page'] = '';
+$content['parent_page'] = 'empresa';
 
 /**
  * Título do navegador
@@ -31,7 +31,7 @@ $content['parent_page'] = '';
  * Título que aparecerá no cabeçalho do navegador.
  * ------------------------------------------------------------------
  */
-$content['head_title'] = '';
+$content['head_title'] = 'Exemplo de Sub-página 2';
 
 /**
  * Título
@@ -39,7 +39,7 @@ $content['head_title'] = '';
  * Título da página exibido como conteúdo do site.
  * ------------------------------------------------------------------
  */
-$content['title'] = '';
+$content['title'] = 'Exemplo de Sub-página';
 
 /**
  * Autor
@@ -74,7 +74,7 @@ $content['tags'] = '';
 ob_start();
 // Digite abaixo todo o conteúdo da página ?>
 
-
+<p>Esse é um exemplo de sub-página.</p>
 
 <?php
 

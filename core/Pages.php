@@ -10,6 +10,7 @@ class Pages {
 
 	private function load_all_pages() {
 		global $config;
+		
         $page_dir = $config['page_dir'];
         
         if ( is_dir( $page_dir ) ) :
@@ -23,11 +24,7 @@ class Pages {
                         $name = str_replace( '.' . end( $name ), '', $pages_file );
                         
 						if ( $name != 'pages_config' ) :
-	                        $this->pages[$name] = array(
-	                            'path' => $page_dir . $pages_file
-	                        );
-							
-							include $this->pages[$name]['path'];
+	                        $this->add_page( $name, $pages_file );
 						endif;
                         
                     endif;
@@ -47,20 +44,48 @@ class Pages {
 		return array_keys( $this->pages );
 	}
     
+	public function is_page( $page = NULL ) {
+		if ( $page != NULL ) :
+			if ( array_key_exists( $page, $this->pages ) ) :
+				return true;
+			else :
+				return false;
+			endif;
+		endif;
+	}
+	
     public function add_page( $page = NULL, $filename = NULL ) {
         global $config;
         
-        if ( $page != NULL ) $this->pages[$page] = $config['page_dir'] . $filename . '.php';
+        if ( $page != NULL ) $this->pages[$page]['path'] = $config['page_dir'] . $filename;
+		
+		include $this->pages[$page]['path'];
     }
     
     public function del_page( $page ) {
-        if ( array_key_exists( $page, $this->pages ) ) unset( $this->pages[$page] );
+        if ( $this->is_page( $page ) ) unset( $this->pages[$page] );
 		
 		$this->total_pages = count( $this->pages );
     }
     
+	public function is_parent_page( $page ) {
+		if ( empty ( $this->pages[$page]['sub_page'] ) ) :
+			return false;
+		else :
+			return true;
+		endif;
+	}
+	
     public function set_page_val( $page = NULL, $term = NULL, $val = NULL ) {
-        if ( $page != NULL && $term != NULL && $val != NULL ) $this->pages[$page][$term] = $val;
+        if ( $page != NULL && $term != NULL && $val != NULL ) :
+			if ( $term == 'parent_page' && NULL != $val ) :
+				if ( $this->is_page( $val ) ) :
+					$this->pages[$val]['sub_page'][] = $page;
+				endif;
+			endif;
+			
+			$this->pages[$page][$term] = $val;
+		endif;
     }
 	
 	public function set_all_page_values( $page_id = NULL, $content = NULL ){

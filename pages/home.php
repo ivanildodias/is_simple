@@ -16,6 +16,14 @@ $page_id = filename( __FILE__ );
 $content = array();
 
 /**
+ * Sub-página
+ * 
+ * Especifique nessa variável a págian da qual ela é sub-página.
+ * ------------------------------------------------------------------
+ */
+$content['parent_page'] = '';
+
+/**
  * Título do navegador
  * 
  * Título que aparecerá no cabeçalho do navegador.

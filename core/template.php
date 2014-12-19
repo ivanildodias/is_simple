@@ -98,51 +98,116 @@ function head_title( $sep = '-' ) {
 	endif;
 }
 
-function get_menu( $menu_options = array() ) {
-	global $pages;
+function get_menu( $args = array() ) {
+	global $pages, $menu_pages;
 	
-	$defaults = array(
-		'menu' => 'main-menu',
-		'container' => 'nav',
-		'container_id' => '',
-		'container_class' => '',
-		'menu_id' => '',
-		'menu_class' => ''
-	);
+	// Argumentos padrão
+	$defaults = array( 'menu' => 'main-menu', 'container' => 'nav', 'container_id' => '', 'container_class' => '',
+		'menu_id' => '', 'menu_class' => 'nav', 'menu_item_class' => 'menu-item', 'menu_link_class' => '',
+		'sub_menu_class' => 'sub-nav', 'sub_menu_item_class' => 'sub-menu-item', 'sub_menu_link_class' => '', 'echo' => true );
 	
-	$menu_options = array_merge( $defaults, $menu_options );
+	// Mescla arqumentos enviados com os padrão
+	$args = array_merge( $defaults, $args );
 	
+	// Array com todas as páginas
 	$all_pages = $pages->array_all_page_names();
 	
-	$menu_output  = '<' . $menu_options['container'];
+	// Array de páginas do menu selecionado
+	if ( null === $menu_pages[$args['menu']] )
+		echo '<script>alert( "O menu solicitado não foi configurado!" );</script>';
+	else
+		$menu_pages = $menu_pages[$args['menu']];
 	
-	if ( $menu_options['container_id'] != '' )
-		$menu_output .= ' id="' . $menu_options['container_id'] . '"';
+	echo '<pre>';
+	print_r( $menu_pages );
+	echo '</pre>';
 	
-	if ( $menu_options['container_class'] != '' )
-		$menu_output .= ' class="' . $menu_options['container_class'] . '"';
+	// Construção da estrutura do menu
+	$menu_output  = '<' . $args['container'];
+	
+	if ( $args['container_id'] != '' )
+		$menu_output .= ' id="' . $args['container_id'] . '"';
+	
+	if ( $args['container_class'] != '' )
+		$menu_output .= ' class="' . $args['container_class'] . '"';
 	
 	$menu_output .= '>';
 	
 	$menu_output .= '<ul';
 	
-	if ( $menu_options['menu_id'] != '' )
-		$menu_output .= ' id="' . $menu_options['menu_id'] . '"';
+	if ( $args['menu_id'] != '' )
+		$menu_output .= ' id="' . $args['menu_id'] . '"';
 	
-	if ( $menu_options['menu_class'] != '' )
-		$menu_output .= ' class="' . $menu_options['menu_class'] . '"';
+	if ( $args['menu_class'] != '' )
+		$menu_output .= ' class="' . $args['menu_class'] . '"';
 	
 	$menu_output .= '>';
 	
+	// Loop de páginas do menu
 	for ( $i = 0; $i < count( $all_pages ); $i++ ) :
-		$menu_output .= '<li><a href="#' . $all_pages[$i] . '">' . $all_pages[$i] . '</a></li>';
+		if ( in_array( $menu_pages[$i], $all_pages ) ) :
+			$page_name = $pages->get_page_val( $menu_pages[$i], 'head_title' );
+			
+			$menu_output .= '<li';
+	
+			if ( $args['menu_item_class'] != '' )
+				$menu_output .= ' class="' . $args['menu_item_class'] . '"';
+			
+			$menu_output .= '>';
+			
+			$menu_output .= '<a';
+	
+			if ( $args['menu_link_class'] != '' )
+				$menu_output .= ' class="' . $args['menu_link_class'] . '"';
+			
+			$menu_output .= ' href="#' . $menu_pages[$i] . '">' . $page_name . '</a>';
+			
+			if ( $pages->is_parent_page( $menu_pages[$i] ) ) :
+				$sub_page = $pages->get_page_val( $menu_pages[$i], 'sub_page' );
+				$sub_menu_pages = $menu_pages[$i];
+				
+				$menu_output .= '<ul';
+				
+				if ( $args['sub_menu_class'] != '' )
+					$menu_output .= ' class="' . $args['sub_menu_class'] . '"';
+				
+				$menu_output .= '>';
+				
+				for ( $k = 0; $k < count( $sub_page ); $k++ ) :
+					$sub_page_name = $pages->get_page_val( $sub_page[$k], 'head_title' );
+					
+					$menu_output .= '<li';
+					
+					if ( $args['sub_menu_item_class'] != '' )
+						$menu_output .= ' class="' . $args['sub_menu_item_class'] . '"';
+					
+					$menu_output .= '>';
+					
+					$menu_output .= '<a';
+					
+					if ( $args['sub_menu_link_class'] != '' )
+						$menu_output .= ' class="' . $args['sub_menu_link_class'] . '"';
+					
+					$menu_output .= ' href="' . get_url( 'home', 'display' ) . $sub_page[$k] . '">' . $sub_page_name . '</a>';
+					
+					$menu_output .= '</li>';
+				endfor;
+				
+				$menu_output .= '</ul>';
+			endif;
+			
+			$menu_output .= '</li>';
+		endif;
 	endfor;
 	
 	$menu_output .= '</ul>';
 	
-	$menu_output .= '</' . $menu_options['container'] . '>';
+	$menu_output .= '</' . $args['container'] . '>';
 	
-	echo $menu_output;
+	if ( $args['echo'] )
+		echo $menu_output;
+	else
+		return $menu_output;
 }
 
 

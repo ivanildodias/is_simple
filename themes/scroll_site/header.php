@@ -65,7 +65,6 @@
             			'container' => 'nav',
             			'container_id' => 'main-menu',
             			'container_class' => 'col_5',
-            			'menu_class' => 'nav'
 					);
             		
             		get_menu( $menu ); ?>
