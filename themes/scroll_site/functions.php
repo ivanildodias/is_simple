@@ -21,19 +21,26 @@ function print_page( $page_name ) {
 }
 
 
-function print_all_pages(){
-    global $config, $pages;
-    
-    $url = $config['base_url'];
-    $page_names = $pages->array_all_page_names();
-    $current_page = '';
-    
-    if ( is_home() || in_array( $url, $page_names ) ) :
-        print_page( 'home' );
-        print_page( 'empresa' );
-        print_page( 'portfolio' );
-        print_page( 'contato' );
-    else :
-        print_page( '404' );
-    endif;
+function print_all_pages() {
+	global $config, $pages;
+	
+	$url = $config['base_url'];
+	$all_pages = $pages->array_all_page_names();
+	$scroll_pages = array( 'home', 'empresa', 'portfolio', 'contato' );
+	$current_page = ( is_home() ) ? 'home' : $url;
+	
+	if ( in_array( $current_page, $all_pages ) ) :
+		if ( in_array( $current_page, $scroll_pages ) ) :
+			foreach ( $scroll_pages as $key => $print_page ) :
+				if ( in_array( $print_page, $all_pages ) )
+					print_page( $print_page );
+				else
+					print_page( '404' );
+			endforeach;
+		else :
+			print_page( $current_page );
+		endif;
+	else :
+		print_page( '404' );
+	endif;
 }

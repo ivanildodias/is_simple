@@ -39,7 +39,7 @@ $content['head_title'] = 'Exemplo de Sub-página 2';
  * Título da página exibido como conteúdo do site.
  * ------------------------------------------------------------------
  */
-$content['title'] = 'Exemplo de Sub-página';
+$content['title'] = 'Exemplo de Sub-página 2';
 
 /**
  * Autor

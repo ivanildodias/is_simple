@@ -12,8 +12,9 @@
 		var options = $.extend({
 			'menu': false,
 			'show_menu': false,
-			'show_menu_text': '&#9664; Menu',
-			'hide_menu_text': '&#9658;'
+			'show_menu_text': '◀ Menu',
+			'hide_menu_text': '▶',
+			'home_url': false
 		}, options );
 		
 		// Ajustes para um menu responsivo
@@ -39,42 +40,44 @@
 			}
 			
 			// Ajustes para sub-menus
-			/*var list_item = $( options.menu + ' li' );
-			var link_item = list_item.children( 'a' );
-			
-			if ( list_item.children( 'ul' ) ) {
-				link_item.addClass( 'haschildren' );
-			}*/
-			
 			$( 'a.haschildren' ).before( '<div class="nav-link-group"></div>' );
 			$( '.nav-link-group' ).append( $( '.nav-link-group' ).parent().find( 'a.haschildren' ) );
-			$( '.nav-link-group' ).append( '<a class="more-item transition radius5">&#9660;</a>' );
+			$( '.nav-link-group' ).append( '<a class="more-item">▼</a>' );
 			$( '.sub-nav' ).hide();
 			$( 'a.more-item' ).click( function(){
 				$( this ).closest( 'li' ).find( '.sub-nav' ).slideToggle( '600ms' ).show();
 				
-				if ( $.trim( $( 'a.more-item' ).text() ) === '&#9660;' ) {
-					$( 'a.more-item' ).text( '&#9650;' );
+				if ( $.trim( $( 'a.more-item' ).text() ) === '▼' ) {
+					$( 'a.more-item' ).text( '▲' );
 				} else {
-					$( 'a.more-item' ).text( '&#9660;' );
+					$( 'a.more-item' ).text( '▼' );
 				}
 			});
 			
 			$( 'li.childselected_li' ).find( 'a.more-item' ).addClass( 'childselected' );
 			
 			// Ajuste click scroll to id no #main-menu
-			$( options.menu ).find( 'a[href^="#"]' ).click( function() {
-		        
-		        $( options.menu ).find( 'a' ).removeClass( 'selected' );
-		        $( this ).addClass( 'selected' );
-		        
-				$( 'html, body' ).animate({
-					scrollTop : $( this.hash ).offset().top
-				}, 500 );
-		
-				return false;
-				e.preventDefault();
-			});
+			if ( options.home_url ) {
+				$( options.menu ).find( 'a[href^="#"]' ).click( function() {
+			        var url = location.href;
+			        
+			        $( options.menu ).find( 'a' ).removeClass( 'selected' );
+			        $( this ).addClass( 'selected' );
+			        
+			        if ( url !== options.home_url ) {
+						location.href = options.home_url;
+					}
+					
+					$( 'html, body' ).animate({
+						scrollTop : $( this.hash ).offset().top
+					}, 500 );
+			
+					return false;
+					e.preventDefault();
+				});
+			} else {
+				alert( 'Defina a opção "home_url"' );
+			}
 		
 		}
 		

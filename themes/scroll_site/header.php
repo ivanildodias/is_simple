@@ -46,7 +46,7 @@
 			<section id="header-conteiner" class="conteiner">
 				<div class="linha">
 					
-					<div class="col_7">
+					<div id="masthead-conteiner" class="col_7">
 						<div id="logo-header" class="alignleft">
 							<a href="<?php get_url(); ?>">
 								<img src="<?php get_url( 'theme' ); ?>img/is_logo.png" alt="<?php site_info(); ?>" />
@@ -62,9 +62,8 @@
             		
             		<?php // Main-menu
             		$menu = array(
-            			'container' => 'nav',
             			'container_id' => 'main-menu',
-            			'container_class' => 'col_5',
+            			'container_class' => 'col_5'
 					);
             		
             		get_menu( $menu ); ?>
