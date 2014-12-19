@@ -227,7 +227,7 @@ function get_menu( $args = array() ) {
 				$sub_pages = $pages->get_page_val( $page_slug, 'sub_page' );
 				
 				// Array de sub-páginas do ítem do menu selecionado
-				$sub_menu_pages = $page_term;
+				$sub_menu_pages = $page_term['sub_pages'];
 				
 				// Início da tag de abertura do sub-menu
 				$menu_output .= '<ul';
@@ -240,11 +240,17 @@ function get_menu( $args = array() ) {
 				$menu_output .= '>';
 				
 				// Loop de páginas do sub-menu 
-				for ( $k = 0; $k < count( $sub_menu_pages ); $k++ ) :
+				foreach ( $sub_menu_pages as $sub_page_key => $sub_page_term ) :
+					// Ítem do sub-menu
+					$sub_page_slug = $sub_page_key;
+					
+					// Link do ítem do sub-menu
+					$sub_page_link = $sub_page_term['link'];
+					
 					// Se a sub-página do sub-menu existir...
-					if ( in_array( $sub_menu_pages[$k], $sub_pages ) ) :
+					if ( in_array( $sub_page_slug, $sub_pages ) ) :
 						// Nome da sub-página
-						$sub_page_name = $pages->get_page_val( $sub_menu_pages[$k], 'head_title' );
+						$sub_page_name = $pages->get_page_val( $sub_page_slug, 'head_title' );
 						
 						// Início da tag de abertura do ítem do sub-menu
 						$menu_output .= '<li';
@@ -253,7 +259,7 @@ function get_menu( $args = array() ) {
 						$sub_menu_class = array();
 						if ( $args['sub_menu_item_class'] != '' )
 							$sub_menu_class[] = $args['sub_menu_item_class'];
-						if ( $url == $sub_menu_pages[$k] && $args['menu_item_selected_class'] != '' )
+						if ( $url == $sub_page_slug && $args['menu_item_selected_class'] != '' )
 							$sub_menu_class[] = $args['menu_item_selected_class'];
 						$sub_menu_class = ( count( $sub_menu_class ) > 0 ) ? implode( ' ', $sub_menu_class ) : '';
 						if ( $sub_menu_class != '' ) :
@@ -270,7 +276,7 @@ function get_menu( $args = array() ) {
 						$link_class = array();
 						if ( $args['sub_menu_link_class'] != '' )
 							$link_class[] = $args['sub_menu_link_class'];
-						if ( $url == $sub_menu_pages[$k] && $args['menu_link_selected_class'] != '' )
+						if ( $url == $sub_page_slug && $args['menu_link_selected_class'] != '' )
 							$link_class[] = $args['menu_link_selected_class'];
 						$link_class = ( count( $link_class ) > 0 ) ? implode( ' ', $link_class ) : '';
 						if ( $link_class != '' ) :
@@ -278,12 +284,12 @@ function get_menu( $args = array() ) {
 						endif;
 						
 						// Endereço, rótulo e fechamento do link do ítem do sub-menu
-						$menu_output .= ' href="' . get_url( 'home', 'display' ) . $sub_menu_pages[$k] . '">' . $sub_page_name . '</a>';
+						$menu_output .= ' href="' . $sub_page_link . '">' . $sub_page_name . '</a>';
 						
 						// Tag de fechamento do ítem do sub-menu
 						$menu_output .= '</li>';
 					endif;
-				endfor;
+				endforeach;
 				
 				// Tag de fechamento do sub-menu
 				$menu_output .= '</ul>';

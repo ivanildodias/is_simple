@@ -1,7 +1,7 @@
 <?php
 
 ?>
-
+<!--
 <script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/jquery-validate.js"></script>
 <script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/jquery-validate-add-methods.js"></script>
 <script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/jquery-validate-messages.js"></script>
@@ -21,7 +21,7 @@
 		$('#fone').inputmask('+55 99 9999-9999');
 		$('#celfone').inputmask('+55 99 9999[9]-9999');
 	});
-</script>
+</script>-->
 <form action="" id="contact_form" method="post" enctype="multipart/form-data">
 	<div class="inner">
 		<p>Preencha todos os campos do formulário.</p>

@@ -14,7 +14,8 @@
 			'show_menu': false,
 			'show_menu_text': '◀ Menu',
 			'hide_menu_text': '▶',
-			'home_url': false
+			'home_url': false,
+			'scroll_speed': 500
 		}, options );
 		
 		// Ajustes para um menu responsivo
@@ -58,20 +59,22 @@
 			
 			// Ajuste click scroll to id no #main-menu
 			if ( options.home_url ) {
+				var url = location.href;
+				var home_url = options.home_url;
+				var num = home_url.length + 1;
+				var hash = url.substring( num );
+				
+				if ( url !== home_url && hash.substring( 0, 1 ) === '#' ) {
+					scroll_page( hash );
+				}
+				
 				$( options.menu ).find( 'a[href^="#"]' ).click( function() {
-			        var url = location.href;
-			        
-			        $( options.menu ).find( 'a' ).removeClass( 'selected' );
-			        $( this ).addClass( 'selected' );
-			        
-			        if ( url !== options.home_url ) {
-						location.href = options.home_url;
+					if ( url !== home_url ) {
+						location.href = home_url;
 					}
 					
-					$( 'html, body' ).animate({
-						scrollTop : $( this.hash ).offset().top
-					}, 500 );
-			
+					scroll_page( this );
+					
 					return false;
 					e.preventDefault();
 				});
@@ -79,6 +82,22 @@
 				alert( 'Defina a opção "home_url"' );
 			}
 		
+		}
+		
+		function scroll_page( destiny ) {
+			var dest = $( destiny.hash ).position().top;
+			var speed = options.scroll_speed;
+			
+			$( 'html, body' ).animate({	scrollTop : dest }, speed );
+			
+			selected_menu( destiny );
+		}
+		
+		function selected_menu( name ) {
+			if (options.menu ) {
+				$( options.menu ).find( 'a' ).removeClass( 'selected' );
+				$( options.menu ).find( 'a[href="' + name.hash + '"]' ).addClass( 'selected' );
+			}
 		}
 		
 		/**

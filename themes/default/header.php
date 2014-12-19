@@ -28,6 +28,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="<?php get_url( 'theme' ); ?>css/style.css">
 
 		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/jquery.js"></script>
+		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/grid.js"></script>
         <script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/modernizr.js"></script>
 		<script type="text/javascript" src="<?php get_url( 'theme' ); ?>js/geral.js"></script>
 	
@@ -45,22 +46,31 @@
 			<section id="header-conteiner" class="conteiner">
 				<div class="linha">
 					
-					<div id="logo-header" class="alignleft">
-						<a href="<?php get_url(); ?>">
-							<img src="<?php get_url( 'theme' ); ?>img/is_logo.png" alt="<?php site_info(); ?>" />
-						</a>
-					</div> <!-- #logo_header -->
-					
-					<hgroup id="masthead">
-						<h1 id="site-title"><a href="<?php get_url(); ?>"><?php site_info(); ?></a></h1>
-						<h2 id="site-description" class="sub-title"><?php site_info( 'site_desc' ); ?></h2>
-					</hgroup> <!-- #masthead -->
-            
-                    <button id="pull" class="hidden">&#9664; Menu</button>
-                    <nav id="main-menu">
+					<div id="masthead-conteiner" class="col_7">
+						<div id="logo-header" class="alignleft">
+							<a href="<?php get_url(); ?>">
+								<img src="<?php get_url( 'theme' ); ?>img/is_logo.png" alt="<?php site_info(); ?>" />
+							</a>
+						</div> <!-- #logo_header -->
+						
+						<hgroup id="masthead">
+							<h1 id="site-title"><a href="<?php get_url(); ?>"><?php site_info(); ?></a></h1>
+							<h2 id="site-description" class="sub-title"><?php site_info( 'site_desc' ); ?></h2>
+						</hgroup> <!-- #masthead -->
+					</div>
+            		
+            		
+            		<?php // Main-menu
+            		$menu = array(
+            			'container_id' => 'main-menu',
+            			'container_class' => 'col_5'
+					);
+            		
+            		get_menu( $menu ); ?>
+                    <!--<nav id="main-menu" class="col_5">
                         <ul class="nav">
                             <li><a class="selected" href="#home">Home</a></li>
-                            <li><a href="#empresa">Empresa</a></li>
+                            <li><a href="#empresa">Empresa</a>
                             <li><a href="#portfolio">Portfólio</a></li>
                             <li><a href="#contato">Contato</a></li>
                         </ul>

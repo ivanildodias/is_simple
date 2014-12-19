@@ -14,6 +14,5 @@
 					<a id="footer-logo" href="<?php get_url(); ?>"><img src="<?php get_url( 'theme' ); ?>img/footer_logo.png" alt="<?php site_info(); ?>" /></a>
 				</div>
 		</footer> <!-- #footer -->
-		<script src="<?php get_url( 'theme' ); ?>js/grid.js"></script>
 	</body>
 </html>
