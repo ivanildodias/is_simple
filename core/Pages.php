@@ -75,6 +75,14 @@ class Pages {
 			return true;
 		endif;
 	}
+    
+	public function is_child_page( $page ) {
+		if ( empty ( $this->pages[$page]['parent_page'] ) ) :
+			return false;
+		else :
+			return true;
+		endif;
+	}
 	
     public function set_page_val( $page = NULL, $term = NULL, $val = NULL ) {
         if ( $page != NULL && $term != NULL && $val != NULL ) :

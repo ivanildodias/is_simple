@@ -48,6 +48,17 @@ function get_url( $url = 'home', $display = '' ) {
 	endif;
 }
 
+function get_page_url( $url = 'home', $display = '' ) {
+	$home_url = get_url( 'home', 'display' );
+	
+	$output_url = ( $url == 'home' ) ? $home_url : $home_url . $url;
+	
+	if ( $display == 'display' ) :
+		return $output_url;
+	else :
+		echo $output_url;
+	endif;
+}
 
 /**
  * Verifica se está na página inicial do site
