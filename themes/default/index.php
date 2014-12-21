@@ -3,7 +3,8 @@
  * Estrutura de conteúdo do site
  * ------------------------------------------------------------------
  */
-?>
+get_header(); ?>
+
 <?php global $pages; ?>
 <main id="scroll-site">
 	<article id="<?php echo $page_name; ?>" class="section">
@@ -19,3 +20,5 @@
         </div>
     </article>
 </main>
+
+<? get_footer();
