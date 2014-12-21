@@ -51,6 +51,21 @@ function include_theme_part( $theme_part_name ) {
 }
 
 
+function get_header() {
+	include_theme_part( 'header' );
+}
+
+
+function get_sidebar() {
+	include_theme_part( 'sidebar' );
+}
+
+
+function get_footer() {
+	include_theme_part( 'footer' );
+}
+
+
 /**
  * Carrega o template do site
  * ------------------------------------------------------------------
@@ -61,21 +76,12 @@ function load_theme() {
 	$theme_dir = $config['theme_dir'];
 	$url = $config['base_url'];
 
-	// Arquivo para funções personalizadas do tema
-	require_once $theme_dir . 'functions.php';
-	
-	// Inclui o cabeçalho do tema
-	include $theme_dir . 'header.php';
-	
 	// Inclui a página de conteúdo principal do tema
 	if ( file_exists( $theme_dir . 'page-' . $url . '.php' ) ) :		// Se houver um arquivo personalizado para a página...
 		include $theme_dir . 'page-' . $url . '.php';	// Inclui o arquivo personalizado
 	else :
 		include $theme_dir . 'index.php';	// Inclui o arquivo padrão (index.php)
 	endif;
-	
-	// Inclui o rodapé do tema
-	include $theme_dir . 'footer.php';
 }
 
 

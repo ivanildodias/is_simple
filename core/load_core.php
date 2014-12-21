@@ -9,6 +9,9 @@ require_once $config['inc_dir'] . 'load_includes.php';
 // Funções essenciais para o funcionamento do sistema
 require_once 'template.php';
 
+// Arquivo para funções personalizadas do tema
+require_once $config['theme_dir'] . 'functions.php';
+
 // Classe Pages
 require_once 'Pages.php';
 
