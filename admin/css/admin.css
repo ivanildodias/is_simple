@@ -1,0 +1,586 @@
+/**
+ * Description: Estilo da página de instalação.
+ *
+ * Author: Ivanildo Dias
+ * Author URI: https://github.com/ivanildodias
+ * Version: 1.0
+ * ------------------------------------------------------------------
+ */
+
+
+/**
+ * PRE-SET
+ *
+ * Ajustes pre-setados para unificação do tema.
+ * ----------------------------------------------------------------------------
+ */
+body {
+    background: #f1f1f1;
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: justify;
+}
+
+p, h1, h2, h3, h4, h5, h6,
+pre, code, ul, ol, form, form li {
+    margin-bottom: 20px;
+    margin-bottom: 2rem;	/* 20 / $rembase */
+}
+
+ul ul, ol ol, ul ol, ol ul, p:last-child {
+    margin-bottom: 0;
+}
+
+hr {
+    margin: 30px auto;
+    margin: 3rem auto;	/* 30 / $rembase */
+    border-bottom: 1px solid #d59266;
+    border-top: 1px solid teal;
+    clear: both;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+    color: #003;
+    font-family: 'Roboto', sans-serif;
+}
+
+.sub-title {
+    margin-top: -20px;
+    margin-top: -2rem;	/* 20 / $rembase */
+}
+
+/* Parágrafos */
+p {
+    text-align: justify;
+}
+
+/* Links */
+a, a:visited {
+    color: royalblue;
+}
+
+a:hover, a:focus {
+    color: teal;
+    text-decoration: underline;
+}
+
+.logo-link, .img-link {
+    display: inline;
+}
+
+/* Imagens */
+figure {
+    position: relative;
+}
+
+figcaption {
+    padding: 5px 10px;
+    padding: 0.5 rem 1rem;	/* 5 10 / $rembase */
+    background: teal;
+    color: #fff;
+    opacity: 0.8;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+a > img {
+    display: block;
+}
+
+/* Formulários */
+.button, a.button, button, input, textarea {
+    padding: 0 5px;
+    padding: 0 0.5 rem;	/* 0 5 / $rembase */
+    font-size: 16px;
+    font-size: 1.6 rem;	/* 16 / $rembase */
+    line-height: 1.75em;	/* 28 / font-size */
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.button, a.button, button, html input[type="button"],
+input[type="reset"], input[type="submit"] {
+    border: 1px solid teal;
+    display: inline-block;
+    background: royalblue;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 teal;
+    -webkit-box-shadow: inset -1px -1px 0 0 teal;
+    box-shadow: inset -1px -1px 0 0 teal;
+}
+
+.button:hover, a.button:hover, button:hover, html input[type="button"]:hover,
+input[type="reset"]:hover, input[type="submit"]:hover {
+    background: skyblue;
+}
+
+.button:active, a.button:active, button:active, html input[type="button"]:active,
+input[type="reset"]:active, input[type="submit"]:active {
+    background: steelblue;
+}
+
+input[type="text"], input[type="search"], input[type="password"],
+input[type="email"], input[type="url"], textarea {
+    border: 1px solid teal;
+    width: 100%;
+}
+
+input[type="text"]:focus, input[type="search"]:focus, input[type="password"]:focus,
+input[type="email"]:focus, input[type="url"]:focus, textarea:focus {
+    border-color: skyblue;
+    -webkit-box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.2);
+    box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.2);
+}
+
+label.error {
+    width: 100%;
+    color: #d33;
+    font-weight: bold;
+}
+
+form ul {
+    list-style: none;
+}
+form li {
+    margin-left: 0;
+}
+form span {
+    color: steelblue;
+    font-size: 14px;
+    font-size: 1.4 rem;	/* 14 / $rembase */
+    font-style: italic;
+}
+
+::-webkit-input-placeholder {
+    color: #444;
+    font-size: 14px;
+    font-size: 1.4 rem;	/* 14 / $rembase */
+    line-height: 2.1428em;	/* 30 / font-size */
+    font-style: italic;
+}
+
+::-moz-placeholder {
+    color: #444;
+    font-size: 14px;
+    font-size: 1.4 rem;	/* 14 / $rembase */
+    line-height: 2.1428em;	/* 30 / font-size */
+    font-style: italic;
+}
+
+:-ms-input-placeholder {
+    color: #444;
+    font-size: 14px;
+    font-size: 1.4 rem;	/* 14 / $rembase */
+    line-height: 2.1428em;	/* 30 / font-size */
+    font-style: italic;
+}
+
+/* Tabelas */
+table {
+	border-collapse: separate;
+	border-spacing: 10px;
+	width: 100%;
+}
+
+table tr > td:nth-child(1) { width: 15%; }
+table tr > td:nth-child(2) { width: 35%; }
+table tr > td:nth-child(3) { width: 50%; }
+
+
+/**
+ * PADRÕES REPETITIVOS
+ *
+ * Classes usadas na formação do tema.
+ * ----------------------------------------------------------------------------
+ */
+.inner {
+    padding: 10px;
+    padding: 1rem;	/* 10 / $rembase */
+}
+
+.clear, .clear:before, .clear:after, .inner:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.hidden {
+    display: none;
+}
+
+.radius5 {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.radius5-l {
+    -webkit-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+}
+
+.radius5-r {
+    -webkit-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.radius10 {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.radius10-rb {
+    -webkit-border-radius: 0 0 10px 0;
+    border-radius: 0 0 10px 0;
+}
+
+.radius10-lt {
+    -webkit-border-radius: 10px 0 0 0;
+    border-radius: 10px 0 0 0;
+}
+
+.section {
+    padding-top: 80px;
+    padding-top: 8rem; /* 80 / $rembase */
+    width: 100%;
+    height: 100%;
+}
+
+.transition {
+    -webkit-transition: all 600ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.shadow {
+    -webkit-box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+/* Alinhamentos */
+.alignleft, .left {
+    float: left;
+    margin: 0 20px 10px 0;
+    margin: 0 2rem 1rem 0;	/* 0 20 10 0 / $rembase */
+}
+
+.alignright, .right {
+    float: right;
+    margin: 0 0 10px 20px;
+    margin: 0 0 1rem 2rem;	/* 0 0 10 20 / $rembase */
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto 10px;
+    margin: 0 auto 1rem;	/* 0 auto 10 / $rembase */
+}
+
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center, .text-centre {
+    text-align: center;
+}
+
+/* Formulários */
+.input-group {
+    border-collapse: separate;
+    display: table;
+    width: 100%;
+}
+
+.input-group input, .input-group-addon, .input-group-button {
+    display: table-cell;
+}
+
+.input-group-addon, .input-group-button {
+    min-width: 1%;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.input-group-addon {
+    border: 1px solid #d59266;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.input-group-button {
+    position: relative;
+}
+
+.input-group-addon:not(:first-child):not(:last-child),
+.input-group-button:not(:first-child):not(:last-child) > *,
+.input-group input:not(:first-child):not(:last-child) {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.input-group-addon:last-child, .input-group-button:last-child > *, .input-group input:last-child {
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.input-group-addon:first-child, .input-group-button:first-child > *, .input-group input:first-child {
+    -webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+/**
+ * GERAL
+ *
+ * Tags relacionadas a uma personalização geral do template.
+ * ----------------------------------------------------------------------------
+ */
+.header, .content-site {
+    margin-bottom: 20px;
+    margin-bottom: 2rem; /* 20 / $rembase */
+}
+
+#header {
+    background: #f1f1f1;
+    width: 100%;
+    z-index: 9999;
+}
+
+/**
+ * SITE HEADER
+ *
+ * Tags relacionadas ao cabeçalho principal do template.
+ * ----------------------------------------------------------------------------
+ */
+#header-conteiner .linha {
+    padding: 10px 0;
+    padding: 1rem 0; /* 10 0 / $rembase */
+}
+
+#logo-header {
+    margin-bottom: 0;
+}
+
+#logo-header img {
+    height: 50px;
+}
+
+#site-title {
+    font-size: 24px;
+    font-size: 2.4 rem; /* 24 / $rembase */
+    line-height: 1.25em; /* 30 / font-size */
+}
+
+#site-title a {
+    color: #003;
+}
+
+#site-description {
+    color: teal;
+    font-size: 14px;
+    font-size: 1.4 rem;	/* 14 / $rembase */
+    line-height: 1.4285em;	/* 20 / font-size */
+    margin-bottom: 0;
+}
+
+/**
+ * CONTENT HEADER
+ *
+ * Tags relacionadas ao cabeçalho de conteúdo do template.
+ * ----------------------------------------------------------------------------
+ */
+.header h3 {
+    font-size: 30px;
+    font-size: 3rem; /* 30 / $rembase */
+    line-height: 1.3333em; /* 40 / font-size */
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid teal;
+    padding-bottom: 10px;
+    padding-bottom: 1rem; /* 10 / $rembase */
+}
+
+/**
+ * CONTENT SITE
+ *
+ * Tags relacionadas ao conteúdo principal do template.
+ * ----------------------------------------------------------------------------
+ */
+
+.content-site {}
+
+.content h4 {
+    text-align: center;
+}
+
+/**
+ * INSTALL-FORM
+ *
+ * Tags relacionadas ao formulário de contato do template.
+ * ----------------------------------------------------------------------------
+ */
+.sucesso, .falha {
+    text-align: center;
+    font-weight: bold;
+}
+.sucesso {
+    color: #02c800;
+}
+.falha {
+    color: #d00;
+}
+
+/**
+ * FOOTER
+ *
+ * Tags relacionadas ao rodapé principal do template.
+ * ----------------------------------------------------------------------------
+ */
+
+#footer {
+    color: #fff;
+    background: url('../img/footer_bg.png') no-repeat top center;
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+    z-index: 9999;
+}
+
+#footer-text {
+    margin-top: 85px;
+    float: left;
+}
+
+#footer-logo {
+    margin-top: 55px;
+    display: block;
+    float: right;
+}
+
+/**
+ * ANIMAÇÃO HOME
+ *
+ * Tags relacionadas ao ícone animado na home do template.
+ * ----------------------------------------------------------------------------
+ */
+
+#animado, #animado2 {
+    width: 289px;
+    height: 473px;
+    margin: 80px auto;
+    background: url('../img/logo_ignus_sem-brilho.png') no-repeat top center;
+    animation: anim_quadro 1s ease infinite alternate;
+    -webkit-transition: all 2000ms ease;
+    -moz-transition: all 2000ms ease;
+    -ms-transition: all 2000ms ease;
+    -o-transition: all 2000ms ease;
+    transition: all 2000ms ease;
+}
+
+#animado2 {
+    background: url('../img/logo_ignus_brilho.png') no-repeat top center;
+    animation: anim_opacidade 1s ease infinite alternate;
+}
+
+@keyframes anim_quadro {
+from {
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+}
+to {
+    background: url('../img/logo_ignus_brilho.png') no-repeat top center;
+}
+}
+
+@keyframes
+anim_opacidade {from {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+}
+to {
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+}
+
+/**
+ * MEDIA QUERIES
+ *
+ * Adaptações para tornar o template responsivo.
+ * ----------------------------------------------------------------------------
+ */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width: 240px) and (max-width: 495px) {
+    .limit {
+        width: 90%;
+    }
+    .inner {
+        padding: 10px;
+    }
+
+    body {
+        font-size: 12px;
+    }
+
+    #install-form, #install-form input[type=text], #install-form textarea {
+        width: 95%;
+    }
+    #install-form input[type=submit] {
+        width: 100%;
+    }
+
+    #footer {
+        background-image: none;
+        background-color: #000;
+        height: auto;
+    }
+    #footer-text, #footer-text p, #footer-logo {
+        text-align: center;
+        width: 100%;
+        float: none;
+        margin: 0;
+    }
+    #footer-logo {
+        margin-top: 10px;
+    }
+
+    #animado, #animado2 {
+        animation: none;
+    }
+    #animado2 {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .limit {
+        width: 80%;
+        max-width: 900px;
+    }
+}
