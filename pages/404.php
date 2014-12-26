@@ -12,8 +12,7 @@
  * PODE OCASIONAR EM ERRO NA LEITURA DO CONTEÚDO DAS PÁGINAS.
  * ------------------------------------------------------------------
  */
-$page_id = explode( '/', filename( __FILE__ ) );
-$page_id = end( $page_id );
+$page_id = basename( __FILE__, '.php' );
 $content = array();
 
 /**
