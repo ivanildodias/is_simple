@@ -87,9 +87,7 @@ class Pages {
     public function set_page_val( $page = NULL, $term = NULL, $val = NULL ) {
         if ( $page != NULL && $term != NULL && $val != NULL ) :
 			if ( $term == 'parent_page' && NULL != $val ) :
-				if ( $this->is_page( $val ) ) :
-					$this->pages[$val]['sub_page'][] = $page;
-				endif;
+				$this->pages[$val]['sub_page'][] = $page;
 			endif;
 			
 			$this->pages[$page][$term] = $val;

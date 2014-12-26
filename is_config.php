@@ -28,7 +28,7 @@ $config['theme_dir'] = $config['base_dir'] . 'themes/' . $config['theme'] . '/';
 
 // URL'S
 $count_localhost_base_url = strlen( $config['url']['home'] ) - 16;
-$config['base_url'] = ( $_SERVER['HTTP_HOST'] = 'localhost' ) ? substr( $_SERVER['REQUEST_URI'], $count_localhost_base_url ) : $_SERVER['REQUEST_URI'];
+$config['base_url'] = ( $_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == '127.0.0.1' ) ? substr( $_SERVER['REQUEST_URI'], $count_localhost_base_url ) : substr( $_SERVER['REQUEST_URI'], 1 );
 if ( stripos( $config['base_url'], '?' ) ) :
 	$name = explode( '?', $config['base_url'] );
 	$config['base_url'] = str_replace( '?' . end( $name ), '', $config['base_url'] );
