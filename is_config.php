@@ -14,17 +14,17 @@ $config['site_name'] = 'IS_Simple';
 $config['site_desc'] = 'Um Framework PHP simples, leve e robusto sem acesso a banco de dados';
 
 /**
- * NÃO MEXA EM NADA APARTIR DAQUI!
+ * NÃO MEXA EM NADA A PARTIR DAQUI!
  * A NÃO SER QUE SAIBA EXATAMENTE O QUE PRETENDE FAZER.
  * ------------------------------------------------------------------
  */
 
 // DIRETÓRIOS
-$config['base_dir'] = dirname( __FILE__ ) . '/';
-$config['core_dir'] = $config['base_dir'] . 'core/';
-$config['inc_dir'] = $config['base_dir'] . 'inc/';
-$config['page_dir'] = $config['base_dir'] . 'pages/';
-$config['theme_dir'] = $config['base_dir'] . 'themes/' . $config['theme'] . '/';
+$config['base_dir'] = ROOT;
+$config['core_dir'] = CORE_DIR;
+$config['inc_dir'] = INC_DIR;
+$config['page_dir'] = PG_DIR;
+$config['theme_dir'] = THEME_DIR . $config['theme'] . '/';
 
 // URL'S
 $count_localhost_base_url = strlen( $config['url']['home'] ) - 16;
