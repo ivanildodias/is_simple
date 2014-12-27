@@ -60,39 +60,39 @@
 		                    <h3>Configurações do site</h3>
 		                </header>
 		                <div class="content">
-		                	<p>Para que o seu site funcione corretamente, preparamos esse pequeno formulário para facilitar a instalação do <b>IS Simple</b>.<br />
+		                	<p>Diversas funcionalidades do <b>Is Simple</b> dependem de algumas pequenas configurações. Para que o seu site funcione corretamente, preparamos esse pequeno formulário para facilitar a instalação do framework.<br />
 		                		Preencha atentamente cada um dos campos do formulário a baixo:</p>
 							<form id="install-form" action="" method="post">
 								<table>
 									<tbody>
 										<tr>
 											<td><label for="site-name">Nome do site:</label></td>
-											<td><input type="text" name="site_name" value="" id="site-name" /></td>
+											<td><input type="text" name="site_name" id="site-name" placeholder="MeuSite.com" pattern="[a-zA-Z0-9]{3,}" required="required"/></td>
 											<td><span class="form-desc">O nome do seu site.</span></td>
 										</tr>
 										<tr>
 											<td><label for="site-desc">Descrição do site:</label></td>
-											<td><textarea name="site_desc" id="site-desc"></textarea></td>
+											<td><textarea name="site_desc" id="site-desc" placeholder="Breve descrição do site..." required="required"></textarea></td>
 											<td><span class="form-desc">Uma breve descrição do seu site. Descreva em poucas palavras suas funções e objetivos.</span></td>
 										</tr>
 										<tr>
 											<td><label for="admin-name">Administrador:</label></td>
-											<td><input type="text" name="admin_name" value="" id="admin-name" /></td>
-											<td><span class="form-desc">O nome de quem vai ser o administrador do site.</span></td>
+											<td><input type="text" name="admin_name" id="admin-name" placeholder="admin" pattern=" pattern="[a-zA-Z0-9]{3,}" required="required" /></td>
+											<td><span class="form-desc">O nome do usuário quem vai ser o administrador do site.</span></td>
 										</tr>
 										<tr>
 											<td><label for="admin-mail">Admin email:</label></td>
-											<td><input type="email" name="admin_mail" value="" id="admin-mail" /></td>
+											<td><input type="email" name="admin_mail" id="admin-mail" placeholder="admin@email.com" required="required" /></td>
 											<td><span class="form-desc">O email de quem vai ser o administrador do site.</span></td>
 										</tr>
 										<tr>
 											<td><label for="admin-pass">Senha:</label></td>
-											<td><input type="password" name="admin_pass" value="" id="admin-pass" /></td>
+											<td><input type="password" name="admin_pass" id="admin-pass" placeholder="suasenha12345" pattern="[a-zA-Z0-9]{6,}" required="required" /></td>
 											<td><span class="form-desc">A senha de acesso ao administrador do site.</span></td>
 										</tr>
 										<tr>
 											<td><label for="admin-pass-2">Repita a senha:</label></td>
-											<td><input type="password" name="admin_pass_2" value="" id="admin-pass-2" /></td>
+											<td><input type="password" name="admin_pass_2" id="admin-pass-2" placeholder="repita a senha anterior" pattern="[a-zA-Z0-9]{6,}" required="required" /></td>
 											<td><span class="form-desc">Digite novamente a senha de acesso ao administrador do site.</span></td>
 										</tr>
 										<tr>
