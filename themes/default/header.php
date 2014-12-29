@@ -41,7 +41,7 @@
 		<div id="grid" style="display: none;"><div class="conteiner"></div></div>
 		<?php include_once 'analyticstracking.php'; ?>
 	
-		<header id="header" class="fixed">
+		<header id="header">
             
 			<section id="header-conteiner" class="conteiner">
 				<div class="linha">

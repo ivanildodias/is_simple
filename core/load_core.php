@@ -1,10 +1,13 @@
 <?php defined( 'is_running' ) or die( 'Não é um ponto de entrada...' );
 
+// Classe Files
+require_once 'Files.php';
+
 // Funções essenciais para o funcionamento do sistema
 require_once 'core_functions.php';
 
 // Carrega códigos padrão do sistema
-require_once $config['inc_dir'] . 'load_includes.php';
+require_once INC_DIR . 'load_includes.php';
 
 // Funções essenciais para o funcionamento do sistema
 require_once 'template.php';
@@ -16,7 +19,7 @@ require_once $config['theme_dir'] . 'functions.php';
 require_once 'Pages.php';
 
 // CONFIGURAÇÕES DE PÁGINAS
-require_once $config['page_dir'] . 'pages_config.php';
+require_once PG_DIR . 'pages_config.php';
 
 // Carrega o tema
 load_theme();

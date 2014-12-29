@@ -1,10 +1,11 @@
-<?php
+<?php defined( 'is_running' ) or die( 'Não é um ponto de entrada...' );
+
 // Se a timezone não estiver definida...
-defined( 'DEFAULT_ZONE' ) or define( 'DEFAULT_ZONE', 'America/Fortaleza' );
+defined( 'TIMEZONE' ) or define( 'TIMEZONE', 'America/Fortaleza' );
 
 // Configura a timezone padrão no PHP 5
 if ( function_exists( 'date_default_timezone_set' ) )
-	date_default_timezone_set( DEFAULT_ZONE );
+	date_default_timezone_set( TIMEZONE );
 
 
 /**
@@ -89,7 +90,7 @@ class Files {
 	}
 }
 
-$s = DIRECTORY_SEPARATOR;
+$s = DS;
 
 $dir = dirname( dirname( __FILE__ ) ) . $s . 'admin' . $s . 'img' . $s;
 echo $dir;
