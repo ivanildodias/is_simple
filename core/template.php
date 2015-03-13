@@ -3,12 +3,12 @@
 /**
  * Gerencia páginas para exibição no site e retorna o valor solicitado
  * 
- * @param	string	$term		Palavra-chave da informação da página que deseja que seja retornada
- * @param	string	$display	Deixe em branco para exibir diretamente a informação ou digite "display" para retornar a informação sem exibí-la
+ * @param	string	$term	Palavra-chave da informação da página que deseja que seja retornada
+ * @param	string	$echo	Deixe em branco para exibir diretamente a informação ou digite "FALSE" para retornar a informação sem exibí-la
  * @return	string	Retorna a informação solicitada
  * ------------------------------------------------------------------
  */
-function content_site( $term, $display = '' ) {
+function content_site( $term, $echo = TRUE ) {
 	global $config, $pages;
 	
 	$url = $config['base_url'];
@@ -23,7 +23,7 @@ function content_site( $term, $display = '' ) {
 		$current_page = '404';
 	endif;
 	
-	if ( $display == 'display' ) :
+	if ( empty( $echo ) ) :
 		return $pages->get_page_val( $current_page, $term );
 	else :
 		echo $pages->get_page_val( $current_page, $term );

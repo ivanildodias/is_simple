@@ -20,7 +20,7 @@ $config['site_desc'] = 'Um Framework PHP simples, leve e robusto sem acesso a ba
  */
 
 // DIRETÓRIOS
-$config['base_dir'] = ROOT;
+$config['root'] = ROOT;
 $config['core_dir'] = CORE_DIR;
 $config['inc_dir'] = INC_DIR;
 $config['page_dir'] = PG_DIR;
@@ -33,4 +33,8 @@ if ( stripos( $config['base_url'], '?' ) ) :
 	$name = explode( '?', $config['base_url'] );
 	$config['base_url'] = str_replace( '?' . end( $name ), '', $config['base_url'] );
 endif;
+$config['url']['admin'] = $config['url']['home'] . 'admin/';
+$config['url']['core'] = $config['url']['home'] . 'core/';
+$config['url']['inc'] = $config['url']['home'] . 'inc/';
+$config['url']['pages'] = $config['url']['home'] . 'pages/';
 $config['url']['theme'] = $config['url']['home'] . 'themes/' . $config['theme'] . '/';

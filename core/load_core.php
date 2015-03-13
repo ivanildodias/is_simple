@@ -1,7 +1,7 @@
 <?php defined( 'is_running' ) or die( 'Não é um ponto de entrada...' );
 
 // Classe Files
-require_once 'Files.php';
+require_once CLASS_DIR . 'Files.class.php';
 
 // Funções essenciais para o funcionamento do sistema
 require_once 'core_functions.php';
@@ -16,7 +16,7 @@ require_once 'template.php';
 require_once $config['theme_dir'] . 'functions.php';
 
 // Classe Pages
-require_once 'Pages.php';
+require_once CLASS_DIR . 'Pages.class.php';
 
 // CONFIGURAÇÕES DE PÁGINAS
 require_once PG_DIR . 'pages_config.php';
