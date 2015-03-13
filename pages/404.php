@@ -84,6 +84,4 @@ ob_start();
 $content['content'] = ob_get_contents();
 ob_end_clean();
 
-$this->set_all_page_values( $page_id, $content );
-
 

@@ -15,7 +15,7 @@ if ( function_exists( 'date_default_timezone_set' ) )
  * Classe para manipulação de arquivos
  */
 class Files {
-	static function read_dir( $dir, $type = 'php' ) {
+	static function read_dir( $dir, $type = FALSE ) {
 		$files = array();
 		$ds = DIRECTORY_SEPARATOR;
 		
@@ -101,6 +101,7 @@ class Files {
 	}
 }
 
+/*
 $dir = ADM_DIR . 'img' . DS;
 echo $dir . '<br />';
 
@@ -113,7 +114,7 @@ $f = Files::read_dir( $dir, 0 );
 echo '<pre>';
 print_r( $f );
 echo '</pre>';
-/*
+
 foreach( $f as $files ){
   echo '<img src="' . $files['path'] . '" /><br>' . $files['name'] . "<br>";
 }

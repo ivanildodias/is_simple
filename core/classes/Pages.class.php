@@ -60,6 +60,8 @@ class Pages {
         if ( $page != NULL ) $this->pages[$page]['path'] = $config['page_dir'] . $filename;
 		
 		include $this->pages[$page]['path'];
+		
+		$this->set_all_page_values( $page_id, $content );
     }
     
     public function del_page( $page ) {
@@ -111,4 +113,3 @@ class Pages {
     }
 }
 
-$pages = new Pages();
